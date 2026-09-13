@@ -1,0 +1,63 @@
+# === Fichiers temporaires LaTeX ===
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.synctex
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.gz
+
+# === Fichiers temporaires Pandoc ===
+*.tmp
+*.pdf.tmp
+*.tex.tmp
+
+# === Fichiers de verrouillage ===
+.lock
+*.lock
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# === Fichiers système ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Éditeurs ===
+*~
+*.swp
+*.swo
+*.bak
+.vscode/
+.idea/
+*.sublime-*
+
+# === Cache ===
+.cache/
+*.cache
+
+# === Script de réorganisation (à supprimer après usage) ===
+reorganize.sh
