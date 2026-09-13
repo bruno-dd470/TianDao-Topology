@@ -1,4 +1,4 @@
-# The Economic Heavenly Way | 天道经济
+# The Economic Heavenly Way | 经济天道
 ## *Rent Extraction Theory Embedded in Clifford Algebra Cl(6,6) | 赎买理论嵌入克利福德代数 Cl(6,6)*
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -11,9 +11,9 @@
 
 ## 📖 Overview | 概述
 
-**[EN]** This repository hosts a research report on **"The Economic Heavenly Way" (Tiandao Jingji)**. The report formalizes Thierry Rebour's *Rent Extraction Theory* using **Clifford Algebra Cl(6,6)** to model complex economic systems as discrete information systems. The research demonstrates that the economy obeys a universal topological invariant ($64 \rightarrow 20$). Applied to post-2018 China, the model diagnoses the attainment of a "Nodal Point" (exhaustion of the land-based growth engine) and proposes the **Territorial Regeneration Rent (TRR)** as the only topologically permitted transition operator to avoid systemic collapse (retropolarity) and initiate a new cycle of sustainable growth.
+**[EN]** This repository hosts a research report on **"The Economic Heavenly Way" (Jingji Tiandao)**. The report formalizes Thierry Rebour's *Rent Extraction Theory* using **Clifford Algebra Cl(6,6)** to model complex economic systems as discrete information systems. The research demonstrates that the economy obeys a universal topological invariant ($64 \rightarrow 20$). Applied to post-2018 China, the model diagnoses the attainment of a "Nodal Point" (exhaustion of the land-based growth engine) and proposes the **Territorial Regeneration Rent (TRR)** as the only topologically permitted transition operator to avoid systemic collapse (retropolarity) and initiate a new cycle of sustainable growth.
 
-**[ZH]** 本仓库托管了一份关于 **"经济天道"（Tiandao Jingji）** 的研究报告。该报告利用**克利福德代数 Cl(6,6)** 将蒂埃里·雷布尔（Thierry Rebour）的*赎买理论*形式化，将复杂的经济系统建模为离散信息系统。研究证明，经济系统遵循普适的拓扑不变量（$64 \rightarrow 20$）。应用于2018年后的中国，该模型诊断出系统已达到"节点"（土地驱动型增长引擎的耗尽），并提出 **"领土再生租金"（RRT）** 作为唯一在拓扑学上被允许的过渡算子，以避免系统性崩溃（逆极化）并启动新的可持续增长周期。
+**[ZH]** 本仓库托管了一份关于 **"经济天道"（Jingji Tiandao）** 的研究报告。该报告利用**克利福德代数 Cl(6,6)** 将蒂埃里·雷布尔（Thierry Rebour）的*赎买理论*形式化，将复杂的经济系统建模为离散信息系统。研究证明，经济系统遵循普适的拓扑不变量（$64 \rightarrow 20$）。应用于2018年后的中国，该模型诊断出系统已达到"节点"（土地驱动型增长引擎的耗尽），并提出 **"领土再生租金"（RRT）** 作为唯一在拓扑学上被允许的过渡算子，以避免系统性崩溃（逆极化）并启动新的可持续增长周期。
 
 ---
 
