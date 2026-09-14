@@ -9615,6 +9615,7 @@ Cette construction fournit **144 pentades** pour décrire la dynamique économiq
 **Granularité** : $12 \times 66 = 792$ pentades (× 5,5 par rapport à 144).
 
 **Avantage présumé** :
+
 - Les bivecteurs encodent les **relations** entre directions, pas seulement les directions.
 - Ils capturent les **interactions** entre feuilles spectrales (niveau 5 de l'architecture multi-niveaux).
 - Ils permettent de modéliser les **couplages** économiques (secteur × région, par exemple).
@@ -9630,6 +9631,7 @@ Cette construction fournit **144 pentades** pour décrire la dynamique économiq
 **Granularité** : $12 \times 220 = 2640$ pentades (× 18 par rapport à 144).
 
 **Avantage présumé** :
+
 - Les trivecteurs sont l'analogue des **20 trivecteurs de Cl(6,0)** qui définissent les 20 attracteurs.
 - Ils capturent les **structures ternaires** (triplets de feuilles spectrales).
 - Ils sont naturellement liés aux **3-formes holomorphes** $\Omega$ et $\bar{\Omega}$ du contexte SU(3)×SU(3).
@@ -9643,6 +9645,7 @@ Cette construction fournit **144 pentades** pour décrire la dynamique économiq
 **Granularité** : dépend de la décomposition du spineur de Cl(6,6) (dimension 64) sous SU(3)×SU(3).
 
 **Avantage présumé** :
+
 - C'est la structure **la plus riche** et la mieux établie en littérature (géométrie complexe généralisée).
 - Elle capture les **symétries internes** de l'économie (les 8+8 générateurs de SU(3)×SU(3)).
 - Elle permet un **plongement naturel** des 20 attracteurs comme 20 formes pures de degré 3.
@@ -9743,6 +9746,7 @@ Granularité : **~28 000 personnes/pentade** — l'échelle d'une **communauté 
 ### T.6.1 Difficulté mathématique
 
 Le passage 66 → 64 exige une **contrainte précise** (pureté, nilpotence, préservation de l'annihilateur). Cette contrainte doit être :
+
 - **naturelle** (pas ad hoc),
 - **démontrable** (calcul explicite),
 - **cohérente** avec l'invariant 64 → 20.
@@ -9791,6 +9795,7 @@ Les **144 pentades** constituent une **première étape** valide mais insuffisan
 **La stratégie optimale** : valider l'Axe A, puis le croiser avec l'Axe C pour obtenir une structure à la fois **riche** (granularité fine) et **rigoureuse** (fondée en littérature).
 
 Ces prolongements sont laissés ouverts. Les chercheurs motivés trouveront ici :
+
 - les **questions précises** à traiter,
 - les **calculs explicites** à mener,
 - les **tests numériques** à effectuer,
