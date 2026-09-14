@@ -45,7 +45,7 @@ This repository contains **two complementary documents** designed for different 
 | Language | File | Status |
 |----------|------|--------|
 | 🇨🇳 中文 | [rapport_thinktank_zh.md](Documents/zh/rapport_thinktank_zh.md) | ✅ Available |
-| 🇨🇳 中文 | [rapport_thinktank_zh.md](Documents/zh/rapport_thinktank_zh.pdf) | ✅ Available |
+| 🇨🇳 中文 | [rapport_thinktank_zh.pdf](Documents/zh/rapport_thinktank_zh.pdf) | ✅ Available |
 
 ---
 
@@ -72,9 +72,9 @@ This repository contains **two complementary documents** designed for different 
 | Language | File | Status |
 |----------|------|--------|
 | 🇫🇷 Français | [doc_unique_fr.md](Documents/fr/doc_unique_fr.md) | ✅ Available |
-| 🇫🇷 Français | [doc_unique_fr.md](Documents/fr/doc_unique_fr.pdf) | ✅ Available |
+| 🇫🇷 Français | [doc_unique_fr.pdf](Documents/fr/doc_unique_fr.pdf) | ✅ Available |
 | 🇬🇧 English | [doc_unique_en.md](Documents/en/doc_unique_en.md) | ✅ Available |
-| 🇬🇧 English | [doc_unique_en.md](Documents/en/doc_unique_en.pdf) | ✅ Available |
+| 🇬🇧 English | [doc_unique_en.pdf](Documents/en/doc_unique_en.pdf) | ✅ Available |
 
 ---
 
