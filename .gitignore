@@ -26,8 +26,12 @@
 *.ist
 *.gz
 
-# === Fichiers temporaires Pandoc ===
+# === DOSSIERS TEMPORAIRES ET BROUILLONS ===
+trash/
 *.tmp
+*.temp
+
+# === Fichiers temporaires Pandoc ===
 *.pdf.tmp
 *.tex.tmp
 
