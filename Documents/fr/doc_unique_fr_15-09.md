@@ -16,8 +16,7 @@ abstract_fr: |
 abstract_en: |
   The economy is modeled as a discrete information system. The Clifford algebra Cl(6,6), combined with the Merkabah geometric filtration, reduces the 64 economic configurations (defined by six binary dimensions: inflation, purchasing power, profits, rent extraction, dispersion, land regime) to 20 stable attractors, organized along a polarity gradient (3P → 3N). Transitions between these attractors are constrained by tropical belts of the dual dodecahedron of the Merkabah (cycles of expansionary and restrictive policies) and by polar thresholds; any direct transition between belts without passing through a threshold triggers a retropolarity (systemic collapse). This formalism, built upon the work of Rebour (Rent Extraction Theory), Rowlands (Clifford algebras and pentads), Nebe (the Λ₇₂ lattice), and De Dominicis (substrate‑independent generalization), is retrospectively validated against 64 historical regimes. Applied to post‑2018 China, it enables the diagnosis of the Nodal Point's attainment, Stasis on attractor S (dispersion + nodal point), and the imperative of the Territorial Regeneration Rent (TRR) as a controlled crossing of the N₄ threshold — the only topologically permitted path to restart a Rent Extraction cycle and avoid a tenth dynastic collapse.
   Correlative Chinese thought, grounded in the Wuxing and the Yi Jing, has structured all ontologies through a network of correspondences for over two millennia. The economic model presented here, based on Rent Extraction Theory embedded in Clifford algebra Cl(6,6), is the algebraic formalization of this traditional Chinese perspective applied to economics. Finally, the model demonstrates that the TRR is not merely a domestic policy, but the foundation of a 'diplomacy of regeneration', offering the Global South a structural alternative to Western imperialism and positioning the 'Economic Heavenly Way' (Tiandao Jingji) as a new standard of civilization.
-abstract_zh: |
-  本文将经济建模为离散信息系统。克利福德代数 Cl(6,6) 与梅卡巴几何过滤相结合，将 64 种经济构型（由六个二元维度定义：通胀、购买力、利润、赎买、分散、土地制度）约简为 20 个稳定吸引子，并按极性梯度（3P → 3N）排列。这些吸引子之间的转移受梅卡巴对偶十二面体的热带环带（扩张性与紧缩性政策循环）和极值阈值的约束；任何跨环带而不经过阈值的直接转移都会引发逆极化（系统性崩溃）。该形式化方法基于 Rebour（赎买理论）、Rowlands（克利福德代数与五元组）、Nebe（Λ₇₂ 格）和 De Dominicis（独立于基底的推广）的工作，并在 64 个历史体制上得到回溯性验证。应用于 2018 年后的中国，该模型能够诊断节点的到达、系统在吸引子 S（分散+节点）上的停滞，以及领土再生租金（RRT）作为通过 N₄ 阈值进行受控转移的必要性——这是重启赎买周期并避免**第十次**王朝崩溃的唯一拓扑学允许路径。基于五行和易经的中国关联性思维，两千多年来通过对应关系网络构建了所有本体论。本文提出的经济模型基于嵌入克利福德代数 Cl(6,6) 的赎买理论，是这种中国传统视角在经济领域的代数形式化。最后，该模型证明，RRT（领土再生租金）不仅是一项国内政策，更是"再生外交"的基石，为全球南方提供了替代西方帝国主义的结构性方案，并将"经济天道"（Tiandao Jingji/天道经济）确立为一种新的文明标准。
+
 header-includes:
   - \newcommand{\gap}{\operatorname{gap}}
   - \definecolor{green60}{RGB}{0,150,0}
@@ -2407,98 +2406,15 @@ Le tableau de bord spectral est ainsi l'équivalent moderne des **quatre examens
 
 Le tableau suivant synthétise le diagnostic multi-niveaux pour la Chine en 2026, préparant l'application opérationnelle de la Partie III :
 
-\begin{tcolorbox}[colback=blue!3!white,colframe=blue!70!black,title=Tableau de bord spectral multi-niveaux — Chine 2026]
-
-\textbf{NIVEAU 1 — Vue globale (agrégée)}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-$\eta_{\text{total}}$ & $d_{\text{total}}$ & $\text{gap}$ & $R_{\text{seuil}}$ & $I_{\text{Stase}}$ \\
-\hline
-\textcolor{red}{\textbf{$-0.45$}} & \textcolor{orange}{\textbf{$1.9$}} & \textcolor{red}{\textbf{$0.10$}} & \textcolor{red}{\textbf{$0.78$}} & \textcolor{red}{\textbf{$0.64$}} \\
-\hline
-\multicolumn{5}{|c|}{\textit{État : \textcolor{red}{\textbf{ALERTE ROUGE}} — Stase caractérisée}} \\
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.2cm}
-\textbf{NIVEAU 2 — Feuilles spectrales dominantes}
-\begin{center}
-\begin{tabular}{|l|c|c|c|c|l|}
-\hline
-\textbf{Feuille} & $\eta$ & $d$ & $\text{gap}$ & $R_{\text{seuil}}$ & \textbf{État} \\
-\hline
-$e_3$ Profits & \textcolor{red}{$-0.70$} & \textcolor{red}{$1.8$} & \textcolor{red}{$0.08$} & \textcolor{red}{$0.82$} & Ke fort \\
-$f_3$ Accumulation & \textcolor{red}{$-0.60$} & \textcolor{orange}{$2.0$} & \textcolor{red}{$0.10$} & \textcolor{red}{$0.75$} & Ke fort \\
-$e_1$ Inflation & \textcolor{green60}{\textbf{$+0.30$}} & \textcolor{green60}{$3.5$} & \textcolor{green60}{$0.25$} & \textcolor{orange}{$0.40$} & Sheng modéré \\
-
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.2cm}
-\textbf{NIVEAU 3 — Seuils spectraux activés}
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Signature binaire} $\sigma$ & $(1,1,1,1,0,0,0)$ \\
-\hline
-\textbf{Seuils franchis} & $S_1, S_2, S_3, S_4$ (épuisement du modèle antérieur) \\
-\hline
-\textbf{Seuils bloqués} & $S_5, S_6, S_7$ (pas de nouveau cycle) \\
-\hline
-\textbf{Tension topologique} $\mathcal{T}$ & $0.165$ \\
-\hline
-\textbf{Prochain seuil} & $S_5 = 0.17195$ — \textcolor{red}{\textbf{non atteint}} ($\Delta = 0.007$) \\
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.2cm}
-\textbf{NIVEAU 4 — Pentades actives}
-\begin{center}
-\begin{tabular}{|l|c|c|c|l|}
-\hline
-\textbf{Pentade} & \textbf{Activité} & \textbf{Connectivité} & \textbf{Frustration} & \textbf{Rôle} \\
-\hline
-$N_5$ (Stase) & \textcolor{red}{\textbf{$0.78$}} & 5 & — & \textcolor{red}{Nœud critique} \\
-$N_6$ (Austérité) & \textcolor{red}{$0.65$} & 4 & — & Renforcement Ke \\
-$P_6$ (Consommation) & \textcolor{orange}{$0.45$} & — & \textcolor{orange}{$0.33$} & Frustrée \\
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.2cm}
-\textbf{NIVEAU 5 — Tensions Wuxing (cycles Sheng/Ke)}
-\begin{center}
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Élément} & $\eta$ & \textbf{État} \\
-\hline
-Terre (Régulation) & \textcolor{red}{$-0.7$} & Ke dominant \\
-Eau (Monnaie) & \textcolor{red}{$-0.5$} & Ke dominant \\
-Feu (Innovation) & \textcolor{green60}{\textbf{$+0.3$}} & Sheng faible \\
-\hline
-\multicolumn{3}{|c|}{\textit{Déséquilibre structurel : Métal (Rachat) étouffe Bois (Innovation)}} \\
-\hline
-\multicolumn{3}{|c|}{$\Delta\eta_{\max} = 1.0$ (entre Feu et Terre) — \textcolor{red}{\textbf{Frustration maximale}}} \\
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-\textbf{Diagnostic synthétique :} Le système est bloqué sur l'attracteur $S$ (dispersion + point nodal). Les opérateurs $T_{\text{structure}}$, $T_{\text{fire}}$ et $T_{\text{water}}$ sont saturés. Seule l'activation de $N_4$ via la RRT permet un passage contrôlé vers $C_P$.
-
-\end{tcolorbox}
+Le tableau de bord spectral multi-niveaux appliqué à la Chine 2026 est présenté en détail au \textbf{§18.1.2}. Il synthétise le diagnostic sur cinq niveaux de résolution, des quatre observables globales aux 144 pentades projetées, et prépare l'application opérationnelle de la Partie III.
 
 **Diagnostic.** La Chine est en Stase caractérisée ($\mathcal{I}_{\mathrm{Stase}} = 0.64$), avec un blocage entre les seuils $S_4$ et $S_5$. Les feuilles matérielles (Profits, Accumulation, Foncier) sont en contraction profonde, tandis que la feuille cognitive (Innovation) tente une expansion qui ne parvient pas à compenser le déficit d'épaisseur spatiale (§6.4). Le déséquilibre Wuxing confirme que le cycle Ke (régulation) domine le cycle Sheng (génération), et que le Métal (Rachat) étouffe le Bois (Innovation).
 
 **Prescription topologique.** La RRT (§17.1) est un opérateur $T_{\mathrm{mixed}}$ qui doit :
 
-1. Désaturer la pentade $N_5$ (nœud de la Stase) en activant les seuils $S_5$ (Feu), $S_6$ (Eau), $S_7$ (Saut d'octave).
-2. Rééquilibrer le Wuxing en restaurant le cycle Sheng : Bois (innovation écologique) → Feu (emplois verts) → Terre (GEP territorial) → Métal (CUR) → Eau (régénération des bassins).
-3. Faire passer $\mathcal{I}_{\mathrm{Stase}}$ de 0.64 à < 0.3 d'ici 2032, condition de sortie de Stase et de relance d'un nouveau cycle de Rachat matériel.
+1. **Désaturer la pentade $N_5$** en activant les seuils $S_5$ (Feu), $S_6$ (Eau), $S_7$ (Saut d'octave).
+2. **Rééquilibrer le Wuxing** en restaurant le cycle Sheng : Bois (Inflation régulée) → Feu (Pouvoir d'achat) → Terre (Profits/GEP) → Métal (CUR) Eau (Régulation monétaire).
+3. **Faire passer $\mathcal{I}_{\mathrm{Stase}}$ de 0.64 à < 0.3** d'ici 2032, condition de sortie de Stase et de relance d'un nouveau cycle de Rachat matériel.
 
 Au Chapitre 18, cette prescription sera incluse dans le tableau de bord spectral du 15e Plan quinquennal (2026-2030).
 
@@ -2835,7 +2751,7 @@ $-0.05$ & $-0.15$ & $-0.55$ & $-0.70$ & $-0.52$ \\
 \hline
 \end{tabular}\\
 $\Delta\eta_{\mathrm{max}} = 1.0$ (Feu$\leftrightarrow$Métal)\\
-Fragmentation $\mathcal{F} = 0.42$ $\Rightarrow$ système bipolaire Sheng/Ke
+Fragmentation $\mathcal{F} = 0.42$ $\Rightarrow$ système bipolaire Sheng/Ke \\
 
 \end{tcolorbox}
 
@@ -5652,13 +5568,13 @@ L'application repose sur une architecture en 5 couches :
 \end{tabular}
 \end{table}
 
-\subsubsection*{D.4.3. La Chine post-2018 (ID 72)}
+\subsubsection*{D.4.3. La Chine post-2018 (ID 2)}
 
 \textbf{Configuration} : \(\mathbf{x} = (0,0,0,0,1,0)\) — Point nodal, dispersion, front pionnier fermé.
 
 \begin{table}[H]
 \centering
-\caption{Observables pour la Chine post-2018 (ID 72)}
+\caption{Observables pour la Chine post-2018 (ID 2)}
 \label{tab:D_chine_post2018}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -7076,7 +6992,7 @@ Ce tableau applique la règle de projection établie en **Annexe M.0** : chaque 
 % ============================================================
 0 & (0,0,0,0,0,0) & T & 3N & \(\{N_2, N_3, N_4\}\) & Mésopotamie pré-agricole (-10 000) & Sociétés néolithiques (Yangshao, Longshan) \\
 1 & (0,0,0,0,0,1) & Q & 1P+2N & \(\{P_2, N_1, N_4\}\) & Vikings en Islande (IX\textsuperscript{e}) & Migrations barbares (Printemps et Automnes) \\
-2 & (0,0,0,0,1,0) & \textbf{S} & 1P+2N & \(\{P_6, N_5, N_6\}\) & Crise des subprimes (2008) & \textbf{Chine post-2018 (Point Nodal, Stase)} \\
+2 & (0,0,0,0,1,0) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & Crise des subprimes (2008) & \textbf{Chine post-2018 (Point Nodal, Stase)} \\
 3 & (0,0,0,0,1,1) & Q & 1P+2N & \(\{P_2, N_1, N_4\}\) & Celtes en Europe (-500) & Expansion des Zhou (1046–771 av. J.-C.) \\
 4 & (0,0,0,1,0,0) & P & 1P+2N & \(\{P_6, N_1, N_2\}\) & Venise médiévale (XII\textsuperscript{e}) & Villes marchandes des Song (Quanzhou, Hangzhou) \\
 5 & (0,0,0,1,0,1) & P & 1P+2N & \(\{P_6, N_1, N_2\}\) & Châteaux forts (X\textsuperscript{e}) & Système féodal des Zhou de l'Est \\
@@ -7135,14 +7051,14 @@ Ce tableau applique la règle de projection établie en **Annexe M.0** : chaque 
 53 & (1,1,0,1,0,1) & D & 2P+1N & \(\{P_4, P_5, N_2\}\) & Trente Glorieuses (1945–1975) & Chine des réformes (1978–1993) \\
 54 & (1,1,0,1,1,0) & H & 2P+1N & \(\{P_3, P_4, N_6\}\) & Uber (2010s) & Économie des plateformes (Alibaba, Tencent, Didi) \\
 55 & (1,1,0,1,1,1) & H & 2P+1N & \(\{P_3, P_4, N_6\}\) & Silicon Valley & Capitalisme cognitif chinois – IA, data \\
-56 & (1,1,1,0,1,0) & C & 3P & \(\{P_2, P_3, P_6\}\) & Monde (2022) & Chine post-COVID (2020–2026) \\
-57 & (1,1,1,0,1,1) & R & 1P+2N & \(\{P_3, N_1, N_5\}\) & Bitcoin (2017) & Crypto-monnaies en Chine – spéculation \\
-58 & (1,1,1,1,0,0) & R & 1P+2N & \(\{P_3, N_1, N_5\}\) & Post-COVID (2021) & Chaînes d'approvisionnement (2020–2022) \\
-59 & (1,1,1,1,0,1) & R & 1P+2N & \(\{P_3, N_1, N_5\}\) & Sri Lanka (2022) & Crise de la dette chinoise (2021–2026) \\
-60 & (1,1,1,1,1,0) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & Wall Street (1980s) & Financiarisation chinoise (2010–2020) \\
-61 & (1,1,1,1,1,1) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & GAFAM & Géants chinois du numérique (Baidu, Alibaba, Tencent) \\
-62 & (1,1,1,0,0,0) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & Afrique du Sud contemporaine & Inégalités en Chine – Hukou, fossé ville-campagne \\
-63 & (1,1,1,0,0,1) & T & 3N & \(\{N_2, N_3, N_4\}\) & Crise terminale (2008×COVID×Climat) & Chine 2018–2026 – Point Nodal, Stase, transition \\
+56 & (1,1,1,0,0,0) & C & 3P & \(\{P_2, P_3, P_6\}\) & Monde (2022) & Chine post-COVID (2020–2026) \\
+57 & (1,1,1,0,0,1) & R & 1P+2N & \(\{P_3, N_1, N_5\}\) & Bitcoin (2017) & Crypto-monnaies en Chine – spéculation \\
+58 & (1,1,1,0,1,0) & R & 1P+2N & \(\{P_3, N_1, N_5\}\) & Post-COVID (2021) & Chaînes d'approvisionnement (2020–2022) \\
+59 & (1,1,1,0,1,1) & R & 1P+2N & \(\{P_3, N_1, N_5\}\) & Sri Lanka (2022) & Crise de la dette chinoise (2021–2026) \\
+60 & (1,1,1,1,0,0) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & Wall Street (1980s) & Financiarisation chinoise (2010–2020) \\
+61 & (1,1,1,1,0,1) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & GAFAM & Géants chinois du numérique (Baidu, Alibaba, Tencent) \\
+62 & (1,1,1,1,1,0) & S & 1P+2N & \(\{P_6, N_5, N_6\}\) & Afrique du Sud contemporaine & Inégalités en Chine – Hukou, fossé ville-campagne \\
+63 & (1,1,1,1,1,1) & T & 3N & \(\{N_2, N_3, N_4\}\) & Crise terminale (2008×COVID×Climat) & Chine 2018–2026 – Point Nodal, Stase, transition \\
 
 \end{xltabular}
 
@@ -8952,9 +8868,9 @@ Les 12 feuilles sont nommées selon leur rôle économique :
 \addlinespace
 6 & $e_6$ & \textcolor{success}{Sheng} & Foncier & Régime territorial \\
 \addlinespace
-7 & $f_1$ & \textcolor{failure}{Ke} & Régulation salariale & Compression des coûts \\
+7 & $f_1$ & \textcolor{failure}{Ke} & Régulation de l'inflation & Compression des coûts \\
 \addlinespace
-8 & $f_2$ & \textcolor{failure}{Ke} & Régulation financière & Contrôle du crédit \\
+8 & $f_2$ & \textcolor{failure}{Ke} & Régulation du pouvoir d'achat & Contrôle du crédit \\
 \addlinespace
 9 & $f_3$ & \textcolor{failure}{Ke} & Régulation des profits & Limitation des rentes \\
 \addlinespace
@@ -9268,53 +9184,7 @@ Les seuils de l'indice composite sont définis dans le
 
 #### S.7.1 — Structure du tableau de bord
 
-Le tableau de bord multi-niveaux présente les observables sur 5 niveaux emboîtés :
-
-\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Tableau de bord multi-niveaux — Diagnostic Chine 2026]
-
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|p{3cm}|p{10cm}|}
-\hline
-\rowcolor{blue!20}
-\textbf{NIVEAU 1} & \textbf{VUE GLOBALE} \\
-\hline
-Observables & $\eta_{\mathrm{total}} = -0.45$ \quad $d_{\mathrm{total}} = 2.1$ \quad $\mathrm{gap} = 0.12$ \quad $R_{\mathrm{seuil}} = 0.78$ \\
-\hline
-Indice & $\mathcal{I}_{\mathrm{Stase}} = 0.644$ (\textcolor{red}{Stase caractérisée}) \\
-\hline
-\rowcolor{green!20}
-\textbf{NIVEAU 2} & \textbf{FEUILLES DOMINANTES} \\
-\hline
-Feuille $e_3$ & $\eta=-0.7$, $d=1.8$, $\mathrm{gap}=0.08$, $R=0.82$ \\
-Feuille $f_3$ & $\eta=-0.6$, $d=2.0$, $\mathrm{gap}=0.10$, $R=0.75$ \\
-Feuille $e_1$ (Inflation) & $\eta=+0.3$, $d=3.5$, $\mathrm{gap}=0.25$, $R=0.40$ \\
-\hline
-\rowcolor{orange!20}
-\textbf{NIVEAU 3} & \textbf{SEUILS ACTIVÉS} \\
-\hline
-Vecteur $\vec{\sigma}$ & $(1,1,1,1,0,0,0)$ — $S_1$ à $S_4$ franchis, $S_5$ à $S_7$ bloqués \\
-\hline
-Tension & $T = 0.165$, seuil $S_5 = 0.17195$ non atteint \\
-\hline
-\rowcolor{purple!20}
-\textbf{NIVEAU 4} & \textbf{PENTADES ACTIVES} \\
-\hline
-$N_5$ (Stase) & activité $0.78$, connectivité $5$ $\rightarrow$ \textcolor{red}{nœud critique} \\
-$N_6$ (Austérité) & activité $0.65$, connectivité $4$ \\
-$P_6$ (Consommation) & activité $0.45$, frustration $0.33$ \\
-\hline
-\rowcolor{yellow!20}
-\textbf{NIVEAU 5} & \textbf{TENSIONS WUXING} \\
-\hline
-Phases & $\eta_{\mathrm{Terre}} = -0.7$, $\eta_{\mathrm{Eau}} = -0.5$, $\eta_{\mathrm{Feu}} = +0.3$ \\
-\hline
-Déséquilibre & Ke : Métal (Rachat) étouffe Bois (Innovation) \\
-\hline
-Écart max & $\Delta\eta_{\mathrm{max}} = 1.0$ entre Feu et Terre \\
-\hline
-\end{tabular}
-
-\end{tcolorbox}
+Le tableau de bord multi-niveaux présente les observables sur 5 niveaux emboîtés. Sa structure complète et son application au diagnostic de la Chine 2026 sont données au \textbf{§18.1.2}. Le formalisme mathématique de calcul des observables est détaillé en Annexe O.5.
 
 #### S.7.2 — Interprétation économique
 
@@ -9333,7 +9203,7 @@ Déséquilibre & Ke : Métal (Rachat) étouffe Bois (Innovation) \\
 La RRT (§17.1) est un opérateur $T_{\mathrm{mixed}}$ qui doit :
 
 1. **Désaturer la pentade $N_5$** en activant les seuils $S_5$ (Feu), $S_6$ (Eau), $S_7$ (Saut d'octave).
-2. **Rééquilibrer le Wuxing** en restaurant le cycle Sheng : Bois (innovation écologique) → Feu (emplois verts) → Terre (GEP territorial) → Métal (CUR) → Eau (régénération des bassins).
+2. **Rééquilibrer le Wuxing** en restaurant le cycle Sheng : Bois (Inflation régulée) → Feu (Pouvoir d'achat) → Terre (Profits/GEP) → Métal (CUR) → Eau (Régulation monétaire).
 3. **Faire passer $\mathcal{I}_{\mathrm{Stase}}$ de 0.64 à < 0.3** d'ici 2032, condition de sortie de Stase et de relance d'un nouveau cycle de Rachat matériel.
 
 ---
@@ -9799,4 +9669,4 @@ Ces prolongements sont laissés ouverts. Les chercheurs motivés trouveront ici 
 - les **questions précises** à traiter,
 - les **calculs explicites** à mener,
 - les **tests numériques** à effectuer,
-- les **références** à consulter (Rowlands, géométrie complexe généralisée, spineurs purs).
+- les **références** à consulter (Rowlands, géométrie complexe généralisée, spineurs purs). →

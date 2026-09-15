@@ -44,8 +44,10 @@ This repository contains **two complementary documents** designed for different 
 **Download / 下载:**
 | Language | File | Status |
 |----------|------|--------|
-| 🇨🇳 中文 | [rapport_thinktank_zh.md](Documents/zh/rapport_thinktank_zh.md) | ✅ Available |
-| 🇨🇳 中文 | [rapport_thinktank_zh.pdf](Documents/zh/rapport_thinktank_zh.pdf) | ✅ Available |
+| 🇨🇳 中文 | [rapport_thinktank_zh_15-09.md](Documents/zh/rapport_thinktank_zh_15-09.md) | ✅ Available |
+| 🇨🇳 中文 | [rapport_thinktank_zh_15-09.pdf](Documents/zh/rapport_thinktank_zh_15-09.pdf) | ✅ Available |
+| 🇬🇧 English | [rapport_thinktank_en_13-09.md](Documents/en/rapport_thinktank_en_13-09.md) | ✅ Available |
+| 🇬🇧 English | [rapport_thinktank_en_13-09.pdf](Documents/en/rapport_thinktank_en_13-09.pdf) | ✅ Available |
 
 ---
 
@@ -64,18 +66,19 @@ This repository contains **two complementary documents** designed for different 
 - ✅ Complete mathematical formalization in Clifford Algebra Cl(6,6)
 - ✅ 144 economic pentads, 7 spectral thresholds, spectral observables
 - ✅ Rigorous proofs: nilpotence, spectral decomposition, tensorial decomposition
-- ✅ 19 detailed annexes (mathematical formalism, historical calibrations, algorithms)
+- ✅ 20 detailed annexes (mathematical formalism, historical calibrations, algorithms)
 - ✅ Isomorphisms with particle physics, genetic code, phonology, Tang kinship
 - ✅ Philosophical implications: Xiong Shili vs. Nāgārjuna, Vandermeersch's divinatory reason
 
 **Download / 下载:**
 | Language | File | Status |
 |----------|------|--------|
-| 🇫🇷 Français | [doc_unique_fr.md](Documents/fr/doc_unique_fr.md) | ✅ Available |
-| 🇫🇷 Français | [doc_unique_fr.pdf](Documents/fr/doc_unique_fr.pdf) | ✅ Available |
-| 🇬🇧 English | [doc_unique_en.md](Documents/en/doc_unique_en.md) | ✅ Available |
-| 🇬🇧 English | [doc_unique_en.pdf](Documents/en/doc_unique_en.pdf) | ✅ Available |
-
+| 🇫🇷 Français | [doc_unique_fr_15-09.md](Documents/fr/doc_unique_fr_15-09.md) | ✅ Available |
+| 🇫🇷 Français | [doc_unique_fr_15-09.pdf](Documents/fr/doc_unique_fr_15-09.pdf) | ✅ Available |
+| 🇬🇧 English | [doc_unique_en_15-09.md](Documents/en/doc_unique_en_15-09.md) | ✅ Available |
+| 🇬🇧 English | [doc_unique_en_15-09.pdf](Documents/en/doc_unique_en_15-09.pdf) | ✅ Available |
+| 🇨🇳 中文 | [doc_unique_zh_15-09.md](Documents/zh/doc_unique_zh_15-09.md) | ✅ Available |
+| 🇨🇳 中文 | [doc_unique_zh_15-09.pdf](Documents/zh/doc_unique_zh_15-09.pdf) | ✅ Available |
 ---
 
 ## 🧭 Which Report Should I Read? | 我应该阅读哪份报告？

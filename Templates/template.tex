@@ -1,7 +1,7 @@
-%pandoc rapport_thinktank_en.md --template=template_3_langues.tex -o rapport_thinktank_en.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --toc --toc-depth=4
+%pandoc rapport_thinktank_en.md --template=template.tex -o rapport_thinktank_en.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --toc --toc-depth=3
 %latexmk -xelatex -silent rapport_thinktank_en.tex
 
-%pandoc doc_unique_en_10-09.md --template=template_3_langues.tex -o doc_unique_en_10-09.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --bibliography=biblio-unique.bib --biblatex --toc --toc-depth=3
+%pandoc doc_unique_en_10-09.md --template=template.tex -o doc_unique_en_10-09.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --bibliography=biblio-unique.bib --biblatex --toc --toc-depth=3
 %latexmk -xelatex -silent doc_unique_en_10-09.tex
 
 % ==================== CODAGE MATH vu par PANDOC ====================
