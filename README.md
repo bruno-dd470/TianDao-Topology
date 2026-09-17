@@ -150,7 +150,7 @@ If you use this model, data, or concepts in your research, please cite this repo
   year         = {2026},
   month        = {September},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.21768660},
+  doi          = {10.5281/zenodo.22815393},
   url          = {https://github.com/bruno-dd470/TianDao-Topology}
 }
 ```
