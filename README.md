@@ -25,8 +25,12 @@ This repository contains **two complementary documents** designed for different 
 
 ### 1. 📊 Strategic Report for Decision-Makers | 决策者战略报告
 
-**Title:** *La Voie Céleste Économique Chinoise: Moteur Topologique de Diagnostic et de Pilotage pour la Chine Post-2018*  
-**中文标题:** *中国经济天道：2018年后中国的拓扑诊断与调控引擎*
+
+**Title:** *The Economic Heavenly Way, Diagnosing Chinese Stasis and Deploying the Territorial Regeneration Rent (TRR)*
+**Titre:** *La voie céleste économique, diagnostic de la stase chinoise et mise en oeuvre de la Rente de Régénération Territoriale (RRT)*
+**标题：** *经济天道：中国经济停滞的诊断与“地域再生租金”（RRT）的实施*
+
+
 
 **Target Audience / 目标读者:**
 - 🎯 Policymakers, government officials, strategic advisors
@@ -55,8 +59,10 @@ This repository contains **two complementary documents** designed for different 
 
 ### 2. 📖 Comprehensive Scientific Report | 综合科学报告
 
-**Title:** *La Voie Céleste Économique: La théorie du rachat plongée dans l'algèbre de Clifford Cl(6,6) comme prolongement mathématisé de la pensée corrélative chinoise*  
-**中文标题:** *经济天道：赎买理论嵌入克利福德代数 Cl(6,6) 作为中国关联性思维的数学化延伸*
+**Title:** *The Chinese Economic Heavenly Way: Discrete Topology of Complex Systems and the Diplomacy of Regeneration*
+**Titre:** *La Voie Céleste Économique Chinoise: Topologie discrète des systèmes complexe et diplomatie de la régénération*
+**标题** *中国经济天道：复杂系统的离散拓扑与再生外交*
+
 
 **Target Audience / 目标读者:**
 - 🔬 Researchers, academics, PhD students
