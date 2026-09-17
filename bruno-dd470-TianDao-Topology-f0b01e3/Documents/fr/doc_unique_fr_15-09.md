@@ -1,10 +1,14 @@
 ---
 title: "La voie céleste économique"
+title_en: "The Economic Heavenly Way"
+title_zh: "經濟天道"
 subtitle: "Topologie discrète des systèmes complexes et diplomatie de la régénération"
+subtitle_en: "Discrete Topology of Complex Systems and the Diplomacy of Regeneration"
+subtitle_zh: "複雜系統的離散拓撲與再生外交"
 author:
   - "Bruno DE DOMINICIS"
 date: "Septembre 2026"
-doi: "10.5281/zenodo.22815393"
+doi: "10.5281/zenodo.22734768"
 lang: fr
 abstract_fr: |
   L'économie est modélisée comme un système d'information discret. L'algèbre de Clifford Cl(6,6), couplée à la filtration par la géométrie de la Merkabah, réduit les 64 configurations économiques (définies par six dimensions binaires : inflation, pouvoir d'achat, profits, rachat, dispersion, régime foncier) à 20 attracteurs stables, organisés selon un gradient de polarité (3P → 3N). Les transitions entre ces attracteurs sont contraintes par des ceintures tropicales du dodécaèdre dual de la Merkabah (cycles des politiques expansionnistes et restrictives) et des seuils polaires ; toute transition directe entre les ceintures sans passage par un seuil provoque une rétropolarité (effondrement systémique). Ce formalisme, qui s'appuie sur les travaux de Rebour (Théorie du Rachat), Rowlands (Clifford et pentades), Nebe (réseau Λ₇₂) et De Dominicis (généralisation indépendante du substrat), est validé rétrospectivement sur 64 régimes historiques. Appliqué à la Chine post‑2018, il permet de diagnostiquer l'atteinte du Point Nodal, la Stase sur l'attracteur S (dispersion + point nodal), et la nécessité de la Rente de Régénération Territoriale (RRT) comme passage contrôlé par le seuil N₄, seule trajectoire topologiquement autorisée pour relancer un cycle de Rachat et éviter un dixième déclin dynastique.

@@ -1,10 +1,12 @@
 ---
+title_en: "The Economic Heavenly Way"
 title: "經濟天道"
+subtitle_en: "Discrete Topology of Complex Systems and the Diplomacy of Regeneration"
 subtitle: "複雜系統的離散拓撲與再生外交"
 lang: zh
 author: "Bruno DE DOMINICIS"
 date: "Septembre 2026"
-doi: "10.5281/zenodo.22815393"
+doi: "10.5281/zenodo.22734768"
 abstract_en: |
   The economy is modeled as a discrete information system. The Clifford algebra Cl(6,6), combined with the Merkabah geometric filtration, reduces the 64 economic configurations (defined by six binary dimensions: inflation, purchasing power, profits, rent extraction, dispersion, land regime) to 20 stable attractors, organized along a polarity gradient (3P → 3N). Transitions between these attractors are constrained by tropical belts of the dual dodecahedron of the Merkabah (cycles of expansionary and restrictive policies) and by polar thresholds; any direct transition between belts without passing through a threshold triggers a retropolarity (systemic collapse). This formalism, built upon the work of Rebour (Rent Extraction Theory), Rowlands (Clifford algebras and pentads), Nebe (the Λ₇₂ lattice), and De Dominicis (substrate‑independent generalization), is retrospectively validated against 64 historical regimes. Applied to post‑2018 China, it enables the diagnosis of the Nodal Point's attainment, Stasis on attractor S (dispersion + nodal point), and the imperative of the Territorial Regeneration Rent (TRR) as a controlled crossing of the N₄ threshold — the only topologically permitted path to restart a Rent Extraction cycle and avoid a tenth dynastic collapse.
   Correlative Chinese thought, grounded in the Wuxing and the Yi Jing, has structured all ontologies through a network of correspondences for over two millennia. The economic model presented here, based on Rent Extraction Theory embedded in Clifford algebra Cl(6,6), is the algebraic formalization of this traditional Chinese perspective applied to economics. Finally, the model demonstrates that the TRR is not merely a domestic policy, but the foundation of a 'diplomacy of regeneration', offering the Global South a structural alternative to Western imperialism and positioning the 'Economic Heavenly Way' (Tiandao Jingji) as a new standard of civilization.
