@@ -3,7 +3,7 @@
 ## *Discrete Topology of Complex Systems and the Diplomacy of Regeneration | 复杂系统的离散拓扑与再生外交*
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21768660.svg)](https://doi.org/10.5281/zenodo.21768660)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22815393.svg)](https://doi.org/10.5281/zenodo.22815393)
 ![Documents](https://img.shields.io/badge/Documents-2%20Reports-blue)
 ![Languages](https://img.shields.io/badge/Languages-FR%20%7C%20EN%20%7C%20ZH-orange)
 
@@ -48,6 +48,8 @@ This repository contains **two complementary documents** designed for different 
 | 🇨🇳 中文 | [rapport_thinktank_zh_15-09.pdf](Documents/zh/rapport_thinktank_zh_15-09.pdf) | ✅ Available |
 | 🇬🇧 English | [rapport_thinktank_en_13-09.md](Documents/en/rapport_thinktank_en_13-09.md) | ✅ Available |
 | 🇬🇧 English | [rapport_thinktank_en_13-09.pdf](Documents/en/rapport_thinktank_en_13-09.pdf) | ✅ Available |
+| 🇫🇷 Français  | [rapport_thinktank_fr_17-09.md](Documents/fr/rapport_thinktank_fr_17-09.md) | ✅ Available |
+| 🇫🇷 Français  | [rapport_thinktank_fr_17-09.pdf](Documents/fr/rapport_thinktank_fr_17-09.pdf) | ✅ Available |
 
 ---
 
