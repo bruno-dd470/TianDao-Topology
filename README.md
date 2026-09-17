@@ -26,9 +26,9 @@ This repository contains **two complementary documents** designed for different 
 ### 1. 📊 Strategic Report for Decision-Makers | 决策者战略报告
 
 
-**Title:** *The Economic Heavenly Way, Diagnosing Chinese Stasis and Deploying the Territorial Regeneration Rent (TRR)*
-**Titre:** *La voie céleste économique, diagnostic de la stase chinoise et mise en oeuvre de la Rente de Régénération Territoriale (RRT)*
-**标题：** *经济天道：中国经济停滞的诊断与“地域再生租金”（RRT）的实施*
+- **Title:** *The Economic Heavenly Way, Diagnosing Chinese Stasis and Deploying the Territorial Regeneration Rent (TRR)*
+- **Titre:** *La voie céleste économique, diagnostic de la stase chinoise et mise en oeuvre de la Rente de Régénération Territoriale (RRT)*
+- **标题：** *经济天道：中国经济停滞的诊断与“地域再生租金”（RRT）的实施*
 
 
 
@@ -59,9 +59,9 @@ This repository contains **two complementary documents** designed for different 
 
 ### 2. 📖 Comprehensive Scientific Report | 综合科学报告
 
-**Title:** *The Chinese Economic Heavenly Way: Discrete Topology of Complex Systems and the Diplomacy of Regeneration*
-**Titre:** *La Voie Céleste Économique Chinoise: Topologie discrète des systèmes complexe et diplomatie de la régénération*
-**标题** *中国经济天道：复杂系统的离散拓扑与再生外交*
+- **Title:** *The Chinese Economic Heavenly Way: Discrete Topology of Complex Systems and the Diplomacy of Regeneration*
+- **Titre:** *La Voie Céleste Économique Chinoise: Topologie discrète des systèmes complexe et diplomatie de la régénération*
+- **标题** *中国经济天道：复杂系统的离散拓扑与再生外交*
 
 
 **Target Audience / 目标读者:**
