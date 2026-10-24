@@ -1,0 +1,52 @@
+======================================================================
+VÉRIFICATIONS DES INVARIANTS (formule exacte B_0 = H × B_ext)
+======================================================================
+
+--- Distribution des qualifications ---
+  Viable     :  11 (2.75%)
+  Fragile    :  33 (8.25%)
+  Éphémère   : 340 (85.00%)
+  Bulle      :   9 (2.25%)
+  Interdit   :   6 (1.50%)
+  Terminal   :   1 (0.25%)
+  Total      : 400 (100.00%)
+
+--- Les 6 couples interdits (3P × 3H et 3N × 3G) ---
+  (A , T_geo ) : B_0 = 0.106, B_joint = 0.000, d = 6
+  (B , T_geo ) : B_0 = 0.105, B_joint = 0.000, d = 5
+  (C , T_geo ) : B_0 = 0.106, B_joint = 0.000, d = 5
+  (T , A_geo ) : B_0 = 0.150, B_joint = 0.000, d = 6
+  (T , B_geo ) : B_0 = 0.149, B_joint = 0.000, d = 5
+  (T , C_geo ) : B_0 = 0.151, B_joint = 0.001, d = 5
+
+--- L'état terminal (T, T_geo) ---
+  (T, T_geo) : H = 0.643, B_ext = 0.780, B_0 = 0.502, B_joint = 0.632, F = 0.940, S = 0.038, d = 0
+
+--- Les 9 couples de bulle (3P × 3G) ---
+  (A , A_geo ) : H = 0.765, B_ext = 0.870, B_0 = 0.666, B_joint = 0.796, d = 0
+  (A , B_geo ) : H = 0.757, B_ext = 0.870, B_0 = 0.659, B_joint = 0.629, d = 1
+  (A , C_geo ) : H = 0.767, B_ext = 0.870, B_0 = 0.667, B_joint = 0.637, d = 1
+  (B , A_geo ) : H = 0.757, B_ext = 0.870, B_0 = 0.659, B_joint = 0.629, d = 1
+  (B , B_geo ) : H = 0.750, B_ext = 0.870, B_0 = 0.652, B_joint = 0.782, d = 0
+  (B , C_geo ) : H = 0.759, B_ext = 0.870, B_0 = 0.661, B_joint = 0.681, d = 2
+  (C , A_geo ) : H = 0.767, B_ext = 0.870, B_0 = 0.667, B_joint = 0.637, d = 1
+  (C , B_geo ) : H = 0.759, B_ext = 0.870, B_0 = 0.661, B_joint = 0.681, d = 2
+  (C , C_geo ) : H = 0.769, B_ext = 0.870, B_0 = 0.669, B_joint = 0.799, d = 0
+
+--- La Stase chinoise (S, S_geo) ---
+  (S, S_geo) : H = 0.294, B_ext = 0.395, B_0 = 0.116, B_joint = 0.246, F = 0.820, S = 0.044, d = 0
+
+--- Vérification des distances topologiques ---
+  [OK] d(A , A_geo ) = 0 (attendu : 0)
+  [OK] d(A , B_geo ) = 1 (attendu : 1)
+  [OK] d(A , F_geo ) = 2 (attendu : 2)
+  [OK] d(A , J_geo ) = 3 (attendu : 3)
+  [OK] d(A , N_geo ) = 4 (attendu : 4)
+  [OK] d(A , Q_geo ) = 5 (attendu : 5)
+  [OK] d(A , T_geo ) = 6 (attendu : 6)
+  [OK] d(S , S_geo ) = 0 (attendu : 0)
+  [OK] d(T , A_geo ) = 6 (attendu : 6)
+
+======================================================================
+TOUTES LES VÉRIFICATIONS SONT PASSÉES
+======================================================================

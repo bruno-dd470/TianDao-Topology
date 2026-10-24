@@ -81,8 +81,8 @@ This repository contains **two complementary documents** designed for different 
 **Download / 下载:**
 | Language | File | Status |
 |----------|------|--------|
-| 🇫🇷 Français | [doc_unique_fr_15-09.md](Documents/fr/doc_unique_fr_15-09.md) | ✅ Available |
-| 🇫🇷 Français | [doc_unique_fr_15-09.pdf](Documents/fr/doc_unique_fr_15-09.pdf) | ✅ Available |
+| 🇫🇷 Français | [doc_unique_fr_23-10.md](Documents/fr/doc_unique_fr_23-10.md) | ✅ Available |
+| 🇫🇷 Français | [doc_unique_fr_23-10.pdf](Documents/fr/doc_unique_fr_23-10.pdf) | ✅ Available |
 | 🇬🇧 English | [doc_unique_en_15-09.md](Documents/en/doc_unique_en_15-09.md) | ✅ Available |
 | 🇬🇧 English | [doc_unique_en_15-09.pdf](Documents/en/doc_unique_en_15-09.pdf) | ✅ Available |
 | 🇨🇳 中文 | [doc_unique_zh_15-09.md](Documents/zh/doc_unique_zh_15-09.md) | ✅ Available |

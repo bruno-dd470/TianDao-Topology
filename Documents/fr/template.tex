@@ -1,0 +1,724 @@
+%pandoc rapport_thinktank_fr.md --template=../../Templates/template.tex \ -o rapport_thinktank_fr.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --toc --toc-depth=3
+%latexmk -xelatex -silent rapport_thinktank_fr.tex
+
+%pandoc doc_unique_fr_23-10.md --template=template.tex -o doc_unique_fr_23-10.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --bibliography=biblio-unique.bib --biblatex --toc --toc-depth=3
+%latexmk -xelatex -silent doc_unique_fr_23-10.tex
+
+%pandoc doc_unique_fr_23-10.md \
+%  --template=../../Templates/template.tex \
+%  -o doc_unique_fr_23-10.tex \
+%  --pdf-engine=xelatex \
+%  -f markdown+tex_math_single_backslash \
+%  --bibliography=../../Bibliography/biblio-unique.bib \
+%  --biblatex \
+%  --toc --toc-depth=3
+%latexmk -xelatex -silent doc_unique_fr_23-10.tex
+
+%décalage des titres
+%pandoc doc_unique_fr_23-10.md \
+%  --template=template.tex \
+%  -o doc_unique_fr_23-10.tex \
+%  --pdf-engine=xelatex \
+%  -f markdown+tex_math_single_backslash \
+%  --shift-heading-level-by=-1 \
+%  --bibliography=biblio-unique.bib \
+%  --biblatex \
+%  --toc --toc-depth=4
+%latexmk -xelatex -silent doc_unique_fr_23-10.tex
+
+
+% ==================== CODAGE MATH vu par PANDOC ====================
+% Pour que les formules codées en \(...\) soient reconnues,
+% il faut activer l'extension dans la ligne de commande : -f markdown+tex_math_single_backslash
+
+%=====================BUGS PANDOC=======================
+%======erreur difficile à diagnostiquer=================
+% l'erreur YAML parse exception at line 3, column 1,
+% provient d'un --- collé à la ligne suivante
+
+%======erreur BUG nom de fichier BIB=================
+% attention: pas d'accent et pas de tiret bas dans le nom de fichier bib
+% ======================================================
+
+% ==========détection des erreurs dans le fichier log==========
+%  grep -n "^!" doc_unique_fr_23-10.log
+% ======================================================
+
+
+\documentclass[11pt]{article}
+\tracinglostchars=2
+
+%\usepackage[no-math]{fontspec}
+\usepackage{fontspec}
+\usepackage{csquotes}
+\usepackage[utf8]{inputenc} % (Devenu inutile et par défaut depuis LaTeX 2018, mais ne fait pas de mal)
+\usepackage[T1]{fontenc}    % <-- INDISPENSABLE pour que le "œ" soit bien géré par pdfLaTeX
+
+% ==================== GESTION DE LA LANGUE ====================
+\usepackage{etoolbox}
+\newcommand{\doclang}{en} % Par défaut anglais (si compilation manuelle directe)
+ $if(lang)$   \def\templang{$lang$}%
+  \ifstrequal{\templang}{fr}{\renewcommand{\doclang}{fr}}{}%
+  \ifstrequal{\templang}{zh}{\renewcommand{\doclang}{zh}}{}%
+ $endif$ 
+% On charge babel (FR ou EN) mais on NE charge PAS babel/chinese 
+% pour éviter qu'il ne casse xeCJK qui gère déjà parfaitement le chinois.
+\ifstrequal{\doclang}{fr}{%
+  \usepackage[french]{babel}%
+  % Ponctuation française : espace insécable automatique avant ? ! : ;
+  \frenchsetup{AutoSpacePunctuation=true}%
+}{%
+  \usepackage[english]{babel}%
+}
+
+% Macro principale de traduction (plus fiable que \iflanguage pour le CJK)
+\newcommand{\ifdoclang}[3]{%
+  \ifstrequal{\doclang}{#1}{#2}{#3}%
+}
+
+% ===============================================================
+\usepackage{xeCJK}
+% Support des trigrammes du Yijing (Unicode)
+\usepackage{newunicodechar}
+
+% ============================================================
+% SUPPORT DES TRIGRAMMES UTF-8 (Yi Jing) via DejaVu Sans
+% ============================================================
+\newfontfamily{\trigramfont}{DejaVu Sans}[Scale=MatchLowercase]
+
+% Commandes pour garantir un rendu propre, net et uniforme des trigrammes
+\newcommand{\Qian}{{\trigramfont ☰}} % Ciel
+\newcommand{\Kun}{{\trigramfont ☷}}  % Terre
+\newcommand{\Zhen}{{\trigramfont ☳}} % Tonnerre
+\newcommand{\Kan}{{\trigramfont ☵}}  % Eau
+\newcommand{\Dui}{{\trigramfont ☱}}  % Lac
+\newcommand{\Xun}{{\trigramfont ☴}}  % Vent
+\newcommand{\Gen}{{\trigramfont ☶}}  % Montagne
+\newcommand{\Li}{{\trigramfont ☲}}   % Feu
+
+% --- Support des caractères tapés directement dans le Markdown ---
+% Si vous tapez ☲ dans le texte au lieu de faire \Li, ces lignes
+% interceptent le caractère brut et lui appliquent la bonne police.
+
+\newunicodechar{☰}{\Qian}
+\newunicodechar{☷}{\Kun}
+\newunicodechar{☳}{\Zhen}
+\newunicodechar{☴}{\Xun}
+\newunicodechar{☵}{\Kan}
+\newunicodechar{☲}{\Li}
+\newunicodechar{☶}{\Gen}
+\newunicodechar{☱}{\Dui}
+
+% ============================================================
+% --- Support des caractères Pinyin (accents carons/háček) ---
+% Libertinus Serif manque parfois ces glyphes en gras/italique
+% --- Support des caractères Pinyin (accents carons/háček) ---
+
+\newunicodechar{ǎ}{\v{a}}
+\newunicodechar{Ǎ}{\v{A}}
+\newunicodechar{ǐ}{\v{i}}   % <--- AJOUTEZ CETTE LIGNE
+\newunicodechar{Ǐ}{\v{I}}   % <--- ET CELLE-CI
+\newunicodechar{ǧ}{\v{g}}
+\newunicodechar{Ǧ}{\v{G}}
+\newunicodechar{ǹ}{\v{n}}
+\newunicodechar{Ǹ}{\v{N}}
+\newunicodechar{ǔ}{\v{u}}
+\newunicodechar{Ǔ}{\v{U}}
+\newunicodechar{ǜ}{\v{ü}}
+\newunicodechar{Ǜ}{\v{Ü}}
+
+
+% --- Guillemets français (espace ultra-fine, ajustable) ---
+\newunicodechar{«}{«\kern0.05em\nobreak}
+\newunicodechar{»}{\nobreak\kern0.05em»}
+
+% --- Pour graphe chaleur ---
+\newunicodechar{█}{\rule{0.4em}{0.6ex}}
+\newunicodechar{░}{\rule{0.4em}{0.3ex}}
+
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\setmainfont{Libertinus Serif}[
+  BoldFont=Libertinus Serif Bold,
+  ItalicFont=Libertinus Serif Italic,
+  BoldItalicFont=Libertinus Serif Bold Italic
+]
+\setsansfont{Libertinus Sans}[
+  BoldFont=Libertinus Sans Bold
+]
+\setmonofont{JuliaMono}[
+  BoldFont=JuliaMono Bold,
+  Scale=0.9
+]
+\setCJKmainfont{Noto Serif CJK SC}[
+  BoldFont=Noto Serif CJK SC Bold,
+  AutoFakeSlant=0.2          % faux italique pour le CJK
+]  
+
+% ==================== MATHÉMATIQUES ====================
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+% --- AJOUT : Package amsthm et définition des environnements ---
+\usepackage{amsthm}
+
+\theoremstyle{definition} % Texte en romain (pour définitions, exemples)
+\newtheorem{definition}{Définition}[section]
+\newtheorem{example}{Exemple}[section]
+\newtheorem{property}{Propriété}[section]
+\newtheorem{principle}{Principe}[section]
+
+\theoremstyle{plain} % Texte en italique (pour théorèmes, lemmes)
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{corollary}{Corollaire}[section]
+
+\theoremstyle{remark} % Texte en romain, sans numérotation forte
+\newtheorem{remark}{Remarque}[section]
+\newtheorem{note}{Note}[section]
+% -----------------------------------------------------------------
+
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+\setmathfont{Libertinus Math}[range={cal,bfcal}, Scale=MatchLowercase]
+\setcounter{secnumdepth}{0}
+
+% ==================== COMMANDES PERSONNALISÉES ====================
+\usepackage{pifont}
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\braket}[2]{\langle #1|#2\rangle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+% ============================================================
+% COULEURS ET SYMBOLES
+% ============================================================
+\usepackage[dvipsnames,table]{xcolor}  % ← UN SEUL chargement avec options
+
+% Définition des couleurs (fusionnées)
+% ============================================================
+% COULEURS ET SYMBOLES
+% ============================================================
+\usepackage[dvipsnames,table]{xcolor}
+% Définition des couleurs (fusionnées)
+\definecolor{green60}{RGB}{0,150,0}
+\definecolor{success}{RGB}{0,150,0}
+\definecolor{failure}{RGB}{200,0,0}
+\definecolor{warning}{RGB}{255,140,0}
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{amber}{RGB}{255,191,0}  % ← AJOUTER CETTE LIGNE
+\definecolor{terminal}{RGB}{139,0,0}  % rouge foncé
+
+% Symboles de validation (nécessite pifont)
+\usepackage{pifont}
+\providecommand{\cmark}{\ding{51}}
+\providecommand{\xmark}{\ding{55}}
+\providecommand{\wmark}{\ding{73}}
+
+% Commandes de symboles colorés
+\newcommand{\symSucces}{\textcolor{success}{\cmark}}
+\newcommand{\symEchec}{\textcolor{failure}{\xmark}}
+\newcommand{\symAttention}{\textcolor{warning}{\wmark}}
+\newcommand{\fin}{\hfill\(\square\)} % CQFD
+
+% --- GESTION DES EMOJIS (⚠️, ❌) ---
+\newunicodechar{⚠}{\symAttention} % Remplace l'emoji par votre symbole pifont orange
+\newunicodechar{️}{}                % Ignore le caractère invisible U+FE0F
+\newunicodechar{❌}{\symEchec}      % Remplace l'emoji croix rouge par votre symbole pifont rouge
+\newunicodechar{✗}{\symEchec}      % Remplace l'emoji croix rouge par votre symbole pifont rouge
+\newunicodechar{✓}{\symSucces} % Remplace l'emoji par votre symbole pifont orange
+\newunicodechar{✅}{\symSucces} % Remplace l'emoji par votre symbole pifont orange
+
+% Coche verte (✅)
+%\newcommand{\ok}{\symSucces}
+%\newcommand{\mycheck}{\symSucces}
+
+% Commandes mathématiques
+\newcommand{\gap}{\operatorname{gap}}
+
+% ==================== ESPACEMENTS GÉNÉRAUX ====================
+\usepackage{setspace}
+\setstretch{1.12}
+
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\parindent}{0pt}
+\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+\setlength{\abovedisplayshortskip}{4pt plus 1pt}
+\setlength{\belowdisplayshortskip}{4pt plus 1pt}
+
+% ==================== TITRES (espaces corrigés) ====================
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{18pt plus 6pt}{8pt plus 3pt}
+\titlespacing*{\subsection}{0pt}{12pt plus 4pt}{6pt plus 2pt}
+\titlespacing*{\subsubsection}{0pt}{10pt plus 4pt}{4pt plus 2pt}
+
+% AJOUTEZ CECI pour forcer le niveau 4 (####) à aller à la ligne :
+\titleformat{\paragraph}[block]
+  {\normalfont\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\paragraph}{0pt}{10pt plus 4pt}{4pt plus 2pt}
+
+% ==================== TABLE DES MATIÈRES ====================
+\usepackage[titles]{tocloft}
+
+% --- Structure et indentation (l'effet d'escalier) ---
+\setlength{\cftpartindent}{0pt}        % Pour # (Partie I) -> 0pt
+\setlength{\cftsecindent}{0pt}         % Pour ## (1. Introduction) -> 0pt
+\setlength{\cftsubsecindent}{10pt}      % Pour ### (1.1 Le constat) -> 15pt
+\setlength{\cftsubsubsecindent}{20pt}  % Pour #### (1.1.1 L'indépendance) -> 30pt
+\setlength{\cftparaindent}{30pt}       % Pour ##### (1.1.1.1) -> 45pt
+
+% --- Pointillés de conduite ---
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}} % Pointillés pour le niveau 4
+
+% --- Espacement avant chaque entrée ---
+\setlength{\cftbeforesecskip}{2pt plus 1pt}
+\setlength{\cftbeforesubsecskip}{1pt plus 0.5pt}
+
+% --- Profondeur de la table des matières ---
+ $if(toc-depth)$ \setcounter{tocdepth}{$toc-depth$}
+ $else$ \setcounter{tocdepth}{1}
+ $endif$ 
+% --- Traduction du titre TOC ---
+\ifdoclang{fr}{%
+  \renewcommand{\contentsname}{Table des matières}%
+}{%
+  \ifdoclang{zh}{%
+    \renewcommand{\contentsname}{目录}%
+  }{%
+    \renewcommand{\contentsname}{Table of Contents}%
+  }%
+}
+
+% ==================== GÉOMÉTRIE ET MISE EN PAGE ====================
+\usepackage{geometry}
+\geometry{
+  margin=2cm,
+  headsep=4mm,
+  footskip=12pt
+}
+\setlength{\footskip}{13.6pt} % <--- AJOUT ICI pour corriger le warning fancyhdr
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+
+
+% ==================== TABLEAUX ====================
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{colortbl}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{placeins}
+\usepackage{booktabs}
+\usepackage{caption}  
+\usepackage{makecell}
+%\usepackage{xltabular}
+\usepackage{xltabular}
+
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\setlength{\extrarowheight}{2pt}
+
+
+% ==================== INSERTION DES COMMANDES YAML ====================
+ $header-includes$ 
+% ==================== CODE ET LISTINGS ====================
+\usepackage{listings}
+\usepackage{alltt}
+\usepackage{framed}
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{codebg},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  showstringspaces=false,
+  tabsize=4
+}
+
+% ==================== BOÎTES ET ENCADRÉS ====================
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, calc, decorations, decorations.pathmorphing}
+\usepackage[most]{tcolorbox}
+
+% --- Vos anciennes boîtes ---
+\newtcolorbox{validationbox}[2][]{
+  colback=green!5!white,
+  colframe=green!75!black,
+  fonttitle=\bfseries,
+  title=#2,
+  #1
+}
+\newtcolorbox{errorbox}[2][]{
+  colback=red!5!white,
+  colframe=red!75!black,
+  fonttitle=\bfseries,
+  title=#2,
+  #1
+}
+\newtcolorbox{warningbox}[2][]{
+  colback=orange!5!white,
+  colframe=orange!75!black,
+  fonttitle=\bfseries,
+  title=#2,
+  #1
+}
+
+% --- La nouvelle boîte pour les encadrés empiriques ---
+\newtcolorbox{encadrempirique}[1][]{
+  enhanced,
+  colback=gray!5!white,
+  colframe=gray!50!black,
+  colbacktitle=gray!50!black,
+  coltitle=white,
+  fonttitle=\bfseries\small,
+  title={#1},
+  boxrule=0.5pt,
+  arc=2pt,
+  left=6pt,
+  right=6pt,
+  top=4pt,
+  bottom=4pt
+}
+
+% ==================== FIGURES ET IMAGES ====================
+\usepackage{graphicx}
+\graphicspath{{images/}{src/}{./}{../images/}{../src/}}
+\setkeys{Gin}{keepaspectratio=true}
+\usepackage{capt-of}
+\usepackage{pdflscape}
+
+\newcommand{\autofigure}[3][]{
+  \begin{figure}[htbp]
+  \centering
+  \adjustbox{max width=\textwidth, max height=0.6\textheight, keepaspectratio, center}{
+    \includegraphics{#2}
+  }
+  \captionof{figure}{#3}
+  \label{fig:#2}
+  \end{figure}
+}
+
+% ==================== EN-TÊTE ET PIED DE PAGE ====================
+\usepackage{fancyhdr}
+%\setlength{\footskip}{13.6pt}
+
+%\setlength{\headsep}{4mm}
+%\setlength{\topmargin}{-2cm}   % Réduit l'espace au-dessus de l'en-tête
+%\setlength{\headheight}{14pt}
+
+\newcommand{\headerTitle}{%
+\ifstrequal{$lang$}{fr}{%
+La voie céleste économique et la théorie du Rachat
+}{%
+\ifstrequal{$lang$}{zh}{%
+經濟天道與贖買理論
+}{%
+The Economic Heavenly Way and the Theory of Rent Extraction
+}%
+}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\textsc{\headerTitle}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{\textsc{\headerTitle}}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyhead[C]{\textsc{\headerTitle}}
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+% ==================== TITRE DU DOCUMENT ====================
+%
+% Le titre est défini dans le YAML du Markdown.
+%
+% Exemple :
+%
+% title: "The Territorial Regeneration Rent (TRR):"
+% title2: "The New Matrix of Chinese Development"
+%
+% subtitle: "Beyond the Third Chinese Mutation — A Reading Through the Theory of Rent Extraction"
+%
+% author: Bruno DE DOMINICIS
+% date: Août 2026
+%
+% Le saut de ligne est volontairement placé dans le template
+% et non dans le YAML : cela évite que Pandoc transforme \\ en
+% \textbackslash{}.
+
+
+% --- Formater \part : saut de page avant + police plus petite ---
+\makeatletter
+\renewcommand\part{\@startsection{part}{0}{\z@}%
+  {18pt plus 6pt minus 3pt}%
+  {12pt plus 3pt}%
+  {\clearpage\normalfont\large\bfseries}} % \clearpage force le saut de page
+\makeatother
+
+% ==================== GLOSSAIRES ET INDEX (bib2gls) ====================
+% --- Configuration de glossaries-extra pour bib2gls ---
+\usepackage[record,style=indexgroup,undefaction=warn]{glossaries-extra}
+
+% --- Déclaration des champs personnalisés (pour exploitation dans le style) ---
+% Cela évite les warnings de bib2gls et permet d'appeler ces données plus tard
+\glsaddstoragekey{domain}{}{\glsentrydomain}
+\glsaddstoragekey{status}{}{\glsentrystatus}
+\glsaddstoragekey{anchor}{}{\glsentryanchor}
+\glsaddstoragekey{bibpiste}{}{\glsentrybibpiste}
+
+% --- Déclaration des types de glossaires ---
+\newglossary*{notations}{Index des notations}
+\newglossary*{concepts}{Index des concepts}
+\newglossary*{motscles}{Index des mots-clés}      % ← NOUVEAU
+
+% --- Chargement des ressources ---
+
+% 1. Notations (fichier séparé)
+\GlsXtrLoadResources[
+  src = {bib/notations},
+  type = notations,
+  sort = fr,
+  selection = all,
+  entry-type-aliases = {misc=entry}
+]
+
+% 2. Glossaire principal V2 (remplace les anciens concepts + mots_cles)
+% ⚠️ ROUTAGE AUTOMATIQUE :
+% - Les entrées avec "type = {cadre}" iront dans le glossaire 'cadre'
+% - Les autres entrées iront dans le glossaire 'concepts' (défini ici par type=concepts)
+\GlsXtrLoadResources[
+  src = {bib/glossaire_v2},
+  type = concepts,          % Type par défaut pour les entrées sans champ 'type'
+  sort = fr,
+  selection = all,
+  entry-type-aliases = {misc=entry}
+]
+
+% 4. Mots-clés manuels (fichier mots_cles.bib — réactivé)
+\GlsXtrLoadResources[
+  src = {bib/mots_cles},
+  type = motscles,          % même type que glossaire_v2 → un seul index « concepts »
+  sort = fr,
+  selection = all,
+  entry-type-aliases = {misc=entry}
+]
+
+% ==================== BIBLATEX SUPPORT ====================
+$if(biblatex)$ 
+%\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\usepackage[$if(biblatexoptions)$$biblatexoptions$$else$backend=biber,style=authoryear,sorting=nyt$endif$]{biblatex}
+ $if(bibliography)$  
+ $for(bibliography)$ 
+\addbibresource{bib/biblio-unique.bib}
+ $endfor$  
+ $endif$ 
+ $endif$ 
+
+% ==================== HYPERLIENS ====================
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+% --- PROTECTION DES SIGNETS PDF (Bookmarks) ---
+% Empêche hyperref de planter quand les titres contiennent des formules
+%mathématiques
+\pdfstringdefDisableCommands{%
+  \def\mathrm#1{}%
+  \def\mathbb#1{}%
+  \def\mathcal#1{}%
+  \def\mathbf#1{}%
+  \def\otimes{}%
+  \def\chi{}%
+  \def\eta{}%
+  \def\to{}%
+  \def\in{}%
+  \def\times{}%
+  \def\lambda{}%
+  \def\Gamma{}%
+  \def\sigma{}%
+  \def\varepsilon{}%
+  \def\textit#1{#1}%
+}
+
+% ==================== FORÇAGE TYPO TOC (après hyperref) ====================
+% --- Sections : gras, sans indentation ---
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+
+% --- Sous-sections : maigre, indentées ---
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+
+% --- Sous-sous-sections : maigre, plus indentées ---
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+
+% --- Paragraphes (niveau 4) : maigre, encore plus indentées ---
+\renewcommand{\cftparafont}{\normalfont} % <--- AJOUT
+\renewcommand{\cftparapagefont}{\normalfont} % <--- AJOUT
+
+% ==================== PROTECTION LIGNES ORPHELINES ====================
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% ==================== DÉFINITIONS POUR PANDOC ====================
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{2pt}\setlength{\parskip}{6pt}
+}
+\newcommand{\passthrough}[1]{#1}
+\providecommand{\citeproctext}{}
+\providecommand{\citeproc}[1]{#1}
+
+ $if(highlighting-macros)$  $highlighting-macros$  $endif$ 
+ $if(csl-refs)$ \newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+{%
+\begin{list}{}{%
+\setlength{\itemindent}{0pt}
+\setlength{\leftmargin}{0pt}
+\setlength{\parsep}{0pt}
+\ifodd #1\relax
+\setlength{\leftmargin}{\cslhangindent}
+\setlength{\itemindent}{-\cslhangindent}
+\fi
+}%
+}
+{\end{list}}
+\newcommand{\CSLBlock}[1]{#1\par}
+\newcommand{\CSLLeftMargin}[1]{\hspace*{\csllabelwidth}#1}
+\newcommand{\CSLRightInline}[1]{#1}
+\newcommand{\CSLIndent}[1]{\hspace*{\cslhangindent}#1}
+ $endif$ 
+% ==================== VARIABLES PANDOC ====================
+\title{$title$}
+\author{$for(author)$$author$$sep$ \\ $endfor$}
+\date{$date$}
+
+% ==================== REDÉFINITION DE \maketitle ====================
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+  \vspace*{1cm}
+  
+  \begin{minipage}{\textwidth}
+  \centering
+  \fontsize{20}{26}\selectfont\textbf{$title$}
+  \end{minipage}
+  
+  \vspace{0.4cm}
+  
+  $if(subtitle)$   \begin{minipage}{\textwidth}
+  \centering
+  \fontsize{13}{16}\selectfont\itshape $subtitle$   \end{minipage}
+  $endif$   
+  \vspace{0.6cm}
+  
+  \begin{minipage}{\textwidth}
+  \centering
+  \Large
+  $for(author)$$author$$sep$ \par $endfor$   \end{minipage}
+  
+  \vspace{0.6cm}
+  
+  \Large $date$   
+  \end{center}
+  \vspace{1cm}
+}
+\makeatother
+
+
+
+% ==================== CORPS DU DOCUMENT ====================
+\begin{document}
+\maketitle
+
+% --- AFFICHAGE VISUEL DU DOI (Optionnel) ---
+ $if(doi)$ 
+\vspace{-0.5cm}
+\begin{center}
+\small\textbf{\ifdoclang{zh}{DOI：}{DOI :}} \href{https://doi.org/$doi$}{$doi$}
+\end{center}
+\vspace{0.5cm}
+ $endif$ 
+\thispagestyle{firstpage}
+
+ $if(abstract_zh)$ \begin{center}
+\begin{minipage}{0.85\textwidth}
+\noindent \textbf{摘要：} $abstract_zh$ \end{minipage}
+\end{center}
+\vspace{1cm}
+ $endif$ 
+
+
+ $if(abstract_en)$ \begin{center}
+\begin{minipage}{0.85\textwidth}
+\noindent \textbf{Abstract:} $abstract_en$ \end{minipage}
+\end{center}
+\vspace{1cm}
+ $endif$ 
+
+ 
+ $if(abstract_fr)$ \begin{center}
+\begin{minipage}{0.85\textwidth}
+\noindent \textbf{Résumé :} $abstract_fr$ \end{minipage}
+\end{center}
+\vspace{1cm}
+ $endif$ 
+  
+ $if(toc)$ \clearpage
+\tableofcontents
+\clearpage
+ $endif$ 
+\pagestyle{fancy}
+
+ $body$ 
+% ==================== BIBLIOGRAPHIE ====================
+ $if(biblatex)$ 
+%\printbibliography[title={\ifdoclang{fr}{Références}{\ifdoclang{zh}{参考文献}{References}}}]
+ $endif$ 
+
+% ================== INDEX ====================
+\clearpage
+\printunsrtglossary[type=concepts, title={Index des concepts}]
+\clearpage
+\printunsrtglossary[type=motscles, title={Index des mots-clés}]   % ← NOUVEAU
+\clearpage
+\printunsrtglossary[type=notations, title={Index des notations}]
+
+\end{document}
