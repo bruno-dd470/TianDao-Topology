@@ -1,6 +1,7 @@
 
 # The Economic Heavenly Way | 天道经济
-## *Discrete Topology of Complex Systems and the Diplomacy of Regeneration | 复杂系统的离散拓扑与再生外交*
+## *Discrete Topology of Complex Systems and the Diplomacy of Regeneration
+## 复杂系统的离散拓扑与再生外交*
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22815393.svg)](https://doi.org/10.5281/zenodo.22815393)
@@ -11,7 +12,7 @@
 
 ## 📖 Overview | 概述
 
-**[EN]** This repository hosts two complementary research reports on **"The Economic Heavenly Way" (Tiandao Jingji)**. Both reports formalize Thierry Rebour's *Rent Extraction Theory* using **Clifford Algebra Cl(6,6)** to model complex economic systems as discrete information systems. The research demonstrates that the economy obeys a universal topological invariant ($64 \rightarrow 20$). Applied to post-2018 China, the model diagnoses the attainment of a "Nodal Point" (exhaustion of the land-based growth engine) and proposes the **Territorial Regeneration Rent (TRR)** as the only topologically permitted transition operator to avoid systemic collapse (retropolarity) and initiate a new cycle of sustainable growth.
+**[EN]** This repository hosts two complementary research reports on **"The Economic Heavenly Way" (Tiandao Jingji)**. Both reports formalize Thierry Rebour's *Rent Extraction Theory* using **Clifford Algebra Cl(6,6)** to model complex economic systems as discrete information systems. The research demonstrates that the economy obeys a universal topological invariant ($64 \rightarrow 20$). Applied to post-2018 China, the model diagnoses the attainment of a "Nodal Phase" (exhaustion of the land-based growth engine) and proposes the **Territorial Regeneration Rent (TRR)** as the only topologically permitted transition operator to avoid systemic collapse (retropolarity) and initiate a new cycle of sustainable growth.
 
 **[ZH]** 本仓库托管了两份关于 **"经济天道"** 的互补研究报告。两份报告均利用**克利福德代数 Cl(6,6)** 将蒂埃里·雷布尔（Thierry Rebour）的*赎买理论*形式化，将复杂的经济系统建模为离散信息系统。研究证明，经济系统遵循普适的拓扑不变量（$64 \rightarrow 20$）。应用于2018年后的中国，该模型诊断出系统已达到"节点"（土地驱动型增长引擎的耗尽），并提出 **"领土再生租金"（RRT）** 作为唯一在拓扑学上被允许的过渡算子，以避免系统性崩溃（逆极化）并启动新的可持续增长周期。
 
@@ -70,23 +71,23 @@ This repository contains **two complementary documents** designed for different 
 - 🔬 Readers seeking rigorous mathematical formalization and proofs
 
 **Key Features / 主要特点:**
-- ✅ ~260 pages, comprehensive scientific monograph
+- ✅ ~260 pages, (480 pages for the 23-10 French release) comprehensive scientific monograph
 - ✅ Complete mathematical formalization in Clifford Algebra Cl(6,6)
-- ✅ 144 economic pentads, 7 spectral thresholds, spectral observables
+- ✅ 20 geographic & 20 economic pentads, 7 spectral thresholds, spectral observables
 - ✅ Rigorous proofs: nilpotence, spectral decomposition, tensorial decomposition
 - ✅ 20 detailed annexes (mathematical formalism, historical calibrations, algorithms)
-- ✅ Isomorphisms with particle physics, genetic code, phonology, Tang kinship
+- ✅ Isomorphisms with particle physics, genetic code, phonology, Tang dinasty kinship
 - ✅ Philosophical implications: Xiong Shili vs. Nāgārjuna, Vandermeersch's divinatory reason
 
 **Download / 下载:**
 | Language | File | Status |
 |----------|------|--------|
-| 🇫🇷 Français | [doc_unique_fr_23-10.md](Documents/fr/doc_unique_fr_23-10.md) | ✅ Available |
-| 🇫🇷 Français | [doc_unique_fr_23-10.pdf](Documents/fr/doc_unique_fr_23-10.pdf) | ✅ Available |
+| 🇫🇷 Français| [doc_unique_fr_23-10.md](Documents/fr/doc_unique_fr_23-10.md) | ✅ Available |
+| 🇫🇷 Français (480 pages) | [doc_unique_fr_23-10.pdf](Documents/fr/doc_unique_fr_23-10.pdf) | ✅ Available |
 | 🇬🇧 English | [doc_unique_en_15-09.md](Documents/en/doc_unique_en_15-09.md) | ✅ Available |
-| 🇬🇧 English | [doc_unique_en_15-09.pdf](Documents/en/doc_unique_en_15-09.pdf) | ✅ Available |
+| 🇬🇧 English (260 pages) | [doc_unique_en_15-09.pdf](Documents/en/doc_unique_en_15-09.pdf) | ✅ Available |
 | 🇨🇳 中文 | [doc_unique_zh_15-09.md](Documents/zh/doc_unique_zh_15-09.md) | ✅ Available |
-| 🇨🇳 中文 | [doc_unique_zh_15-09.pdf](Documents/zh/doc_unique_zh_15-09.pdf) | ✅ Available |
+| 🇨🇳 中文 (202 pages) | [doc_unique_zh_15-09.pdf](Documents/zh/doc_unique_zh_15-09.pdf) | ✅ Available |
 ---
 
 ## 🧭 Which Report Should I Read? | 我应该阅读哪份报告？
