@@ -53,8 +53,8 @@ This repository contains **two complementary documents** designed for different 
 | 🇨🇳 中文 | [rapport_thinktank_zh_15-09.pdf](Documents/zh/rapport_thinktank_zh_15-09.pdf) | ✅ Available |
 | 🇬🇧 English | [rapport_thinktank_en_13-09.md](Documents/en/rapport_thinktank_en_13-09.md) | ✅ Available |
 | 🇬🇧 English | [rapport_thinktank_en_13-09.pdf](Documents/en/rapport_thinktank_en_13-09.pdf) | ✅ Available |
-| 🇫🇷 Français  | [rapport_thinktank_fr_17-09.md](Documents/fr/rapport_thinktank_fr_17-09.md) | ✅ Available |
-| 🇫🇷 Français  | [rapport_thinktank_fr_17-09.pdf](Documents/fr/rapport_thinktank_fr_17-09.pdf) | ✅ Available |
+| 🇫🇷 Français  | [rapport_thinktank_fr_27-10.md](Documents/fr/rapport_thinktank_fr_27-10.md) | ✅ Available |
+| 🇫🇷 Français  | [rapport_thinktank_fr_27-10.pdf](Documents/fr/rapport_thinktank_fr_27-10.pdf) | ✅ Available |
 
 ---
 
