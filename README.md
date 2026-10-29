@@ -39,7 +39,7 @@ This repository contains **two complementary documents** designed for different 
 - 🎯 Readers seeking actionable insights without heavy mathematical formalism
 
 **Key Features / 主要特点:**
-- ✅ ~60 pages, focused on diagnosis and operational solutions
+- ✅ ~60 pages, (80 pages for the French 27-10 release) focused on diagnosis and operational solutions
 - ✅ Clear narrative structure: Problem → Diagnosis → Solution → Implementation
 - ✅ Multi-level steering architecture (Beijing / Province / County / Observatory)
 - ✅ Spectral dashboard with 4 global observables ($\eta$, $d$, $\text{gap}$, $R_{\text{seuil}}$)
