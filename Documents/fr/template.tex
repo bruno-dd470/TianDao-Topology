@@ -24,7 +24,16 @@
 %  --bibliography=biblio-unique.bib \
 %  --biblatex \
 %  --toc --toc-depth=4
-%latexmk -xelatex -silent doc_unique_fr_23-10.tex
+% latexmk -xelatex -silent doc_unique_fr_23-10.tex
+
+
+% pandoc rapport_thinktank_fr_25-10.md \
+%   --template=template.tex \
+%   -o rapport_thinktank_fr_25-10.tex \
+%   --pdf-engine=xelatex \
+%   -f markdown+tex_math_single_backslash \
+%   --toc --toc-depth=4
+% latexmk -xelatex rapport_thinktank_fr_25-10.tex
 
 
 % ==================== CODAGE MATH vu par PANDOC ====================
@@ -211,6 +220,9 @@
 \definecolor{codebg}{RGB}{245,245,245}
 \definecolor{amber}{RGB}{255,191,0}  % ← AJOUTER CETTE LIGNE
 \definecolor{terminal}{RGB}{139,0,0}  % rouge foncé
+\definecolor{shengmod}{RGB}{255,165,0}
+\definecolor{kefort}{RGB}{100,149,237}
+\definecolor{kemod}{RGB}{196,228,255}
 
 % Symboles de validation (nécessite pifont)
 \usepackage{pifont}
@@ -322,8 +334,8 @@
 \usepackage{booktabs}
 \usepackage{caption}  
 \usepackage{makecell}
-%\usepackage{xltabular}
 \usepackage{xltabular}
+\usepackage{needspace}
 
 \setlength{\LTpre}{6pt}
 \setlength{\LTpost}{6pt}
@@ -497,7 +509,7 @@ The Economic Heavenly Way and the Theory of Rent Extraction
 % --- Déclaration des types de glossaires ---
 \newglossary*{notations}{Index des notations}
 \newglossary*{concepts}{Index des concepts}
-\newglossary*{motscles}{Index des mots-clés}      % ← NOUVEAU
+\newglossary*{motscles}{Index des mots-clés}
 
 % --- Chargement des ressources ---
 
@@ -506,28 +518,25 @@ The Economic Heavenly Way and the Theory of Rent Extraction
   src = {bib/notations},
   type = notations,
   sort = fr,
-  selection = all,
+  selection = {recorded and deps},   % ← CORRIGÉ (avant : all)
   entry-type-aliases = {misc=entry}
 ]
 
-% 2. Glossaire principal V2 (remplace les anciens concepts + mots_cles)
-% ⚠️ ROUTAGE AUTOMATIQUE :
-% - Les entrées avec "type = {cadre}" iront dans le glossaire 'cadre'
-% - Les autres entrées iront dans le glossaire 'concepts' (défini ici par type=concepts)
+% 2. Glossaire principal V2
 \GlsXtrLoadResources[
   src = {bib/glossaire_v2},
-  type = concepts,          % Type par défaut pour les entrées sans champ 'type'
+  type = concepts,
   sort = fr,
-  selection = all,
+  selection = {recorded and deps},   % ← CORRIGÉ (avant : all)
   entry-type-aliases = {misc=entry}
 ]
 
-% 4. Mots-clés manuels (fichier mots_cles.bib — réactivé)
+% 3. Mots-clés manuels
 \GlsXtrLoadResources[
   src = {bib/mots_cles},
-  type = motscles,          % même type que glossaire_v2 → un seul index « concepts »
+  type = motscles,
   sort = fr,
-  selection = all,
+  selection = {recorded and deps},   % ← CORRIGÉ (avant : all)
   entry-type-aliases = {misc=entry}
 ]
 
@@ -537,7 +546,7 @@ $if(biblatex)$
 \usepackage[$if(biblatexoptions)$$biblatexoptions$$else$backend=biber,style=authoryear,sorting=nyt$endif$]{biblatex}
  $if(bibliography)$  
  $for(bibliography)$ 
-\addbibresource{bib/biblio-unique.bib}
+\addbibresource{../bib/biblio-unique.bib}
  $endfor$  
  $endif$ 
  $endif$ 

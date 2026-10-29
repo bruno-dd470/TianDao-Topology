@@ -1,0 +1,239 @@
+# ============================================================
+# MAKEFILE — Document Markdown → LaTeX → PDF avec index (bib2gls)
+# ============================================================
+# Auteur : Bruno De Dominicis
+# Projet : TianDao-Topology / PxF_réduit / creer_index
+# ============================================================
+# Le Makefile est à la racine (fr/).
+# Les sources sont dans src/, bib/, images/, scripts/, template.tex.
+# Les fichiers compilés sont générés dans build/.
+# ============================================================
+# Les commandes pour compiler
+#
+# Nettoyage temporaire (garde le PDF)
+# make -f Makefile-tank clean
+#
+# Nettoyage complet (supprime build/ et out/)
+# make -f Makefile-tank cleanall
+#
+# Puis recompiler
+# make -f Makefile-tank inserer pdf
+# ============================================================
+
+SHELL       := /bin/bash
+PANDOC      := pandoc
+PDFLATEX    := xelatex
+BIB2GLS     := bib2gls
+BIBER       := biber
+PYTHON      := python3
+
+# Répertoires (relatifs à la racine, où se trouve le Makefile)
+SRC_DIR     := src
+BIB_DIR     := bib
+SCRIPTS_DIR := scripts
+BUILD_DIR   := build
+OUT_DIR     := out
+IMG_DIR     := images
+
+# ============================================================
+# NOMS DE FICHIERS
+# ============================================================
+MAIN_MD      := $(SRC_DIR)/rapport_thinktank_fr_27-10_H_indexe.md
+MD_SOURCE    := $(SRC_DIR)/rapport_thinktank_fr_27-10_H.md
+
+TEMPLATE     := template.tex
+MAIN_TEX     := $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.tex
+MAIN_PDF     := $(OUT_DIR)/rapport_thinktank_fr_27-10_H.pdf
+MAIN_AUX     := $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.aux
+MAIN_BCF     := $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.bcf
+MAIN_BBL     := $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.bbl
+MAIN_GLS     := $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.gls
+
+# ============================================================
+# BIBLIOGRAPHIE ET INDEX
+# ============================================================
+BIB_BIBLIO := $(BIB_DIR)/biblio-unique.bib
+BIB_INDEX  := $(BIB_DIR)/notations.bib $(BIB_DIR)/glossaire_v2.bib \
+			  $(BIB_DIR)/mots_cles.bib
+BIB_ALL    := $(BIB_BIBLIO) $(BIB_INDEX)
+
+# ============================================================
+# OPTIONS PANDOC
+# ============================================================
+PANDOC_OPTS := -f markdown+raw_tex+pipe_tables+footnotes+tex_math_dollars+tex_math_single_backslash+raw_attribute+citations \
+-t latex \
+--standalone \
+--toc \
+--toc-depth=4 \
+--number-sections \
+--template=$(TEMPLATE) \
+--biblatex \
+--bibliography=$(BIB_DIR)/biblio-unique.bib \
+--variable=lang:fr \
+--variable=colorlinks:true \
+--variable=linkcolor:blue \
+--variable=urlcolor:blue \
+--variable=toc-title:"Table des matières" \
+--resource-path=$(SRC_DIR):$(IMG_DIR):. \
+--resource-path=$(SRC_DIR):$(IMG_DIR):$(BIB_DIR): \
+--variable=biblatexoptions:"backend=biber,style=authoryear,sorting=nyt"
+
+# Compilation LaTeX : sortie dans build/
+PDFLATEX_OPTS := -interaction=nonstopmode -halt-on-error -output-directory=$(BUILD_DIR) -shell-escape
+# bib2gls : lit le .aux dans build/, écrit dans build/
+BIB2GLS_OPTS  := --dir $(BUILD_DIR) --tex-encoding utf8 --group
+
+.PHONY: all pdf inserer index analyse manquants test clean clean_index cleanall help
+
+all: pdf
+
+pdf: $(MAIN_PDF)
+
+# ============================================================
+# CIBLE INSERTION — Génère le MD indexé avec \glsadd{}
+# ============================================================
+# Script dédié au rapport think tank (protections {=latex},
+# tableaux markdown, termes chinois exclus)
+INSERER_SCRIPT := $(SCRIPTS_DIR)/inserer_index_thinktank.py
+
+inserer:
+	@echo "============================================================"
+	@echo "  Insertion automatique des \\glsadd{}"
+	@echo "  (script think tank : $(INSERER_SCRIPT))"
+	@echo "============================================================"
+	$(PYTHON) $(INSERER_SCRIPT) $(MD_SOURCE) $(MAIN_MD)
+
+# ============================================================
+# Conversion Markdown indexé → LaTeX
+# ============================================================
+$(MAIN_TEX): $(MAIN_MD) $(TEMPLATE) $(BIB_ALL)
+	@echo "============================================================"
+	@echo "  Conversion Markdown → LaTeX"
+	@echo "============================================================"
+	@mkdir -p $(BUILD_DIR)
+	$(PANDOC) $(PANDOC_OPTS) -o $(MAIN_TEX) $(MAIN_MD)
+	@echo "✅ LaTeX généré : $(MAIN_TEX)"
+
+# ============================================================
+# Étape 1 : Première compilation LaTeX
+# ============================================================
+$(MAIN_AUX): $(MAIN_TEX)
+	@echo "============================================================"
+	@echo "  Étape 1/4 : Première compilation LaTeX"
+	@echo "============================================================"
+	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
+	@echo "✅ .aux / .bcf générés"
+
+# ============================================================
+# Étape 2 : Bibliographie (biber)
+# ============================================================
+$(MAIN_BBL): $(MAIN_AUX)
+	@echo "============================================================"
+	@echo "  Étape 2/4 : Bibliographie (biber)"
+	@echo "============================================================"
+	@if [ -f $(MAIN_BCF) ]; then \
+		$(BIBER) --input-directory $(BUILD_DIR) rapport_thinktank_fr_27-10_H; \
+		echo "✅ Bibliographie générée"; \
+	else \
+		echo "⚠️ Fichier .bcf non trouvé"; \
+	fi
+
+# ============================================================
+# Étape 3 : bib2gls — 1er passage
+# ============================================================
+$(MAIN_GLS): $(MAIN_AUX) $(BIB_INDEX)
+	@echo "============================================================"
+	@echo "  Étape 3/4 : bib2gls — 1er passage"
+	@echo "============================================================"
+	@if [ -f $(MAIN_AUX) ]; then \
+		$(BIB2GLS) $(BIB2GLS_OPTS) rapport_thinktank_fr_27-10_H; \
+		echo "✅ bib2gls 1er passage OK"; \
+	else \
+		echo "⚠️ Fichier .aux introuvable"; \
+	fi
+
+# ============================================================
+# Compilation finale
+# ============================================================
+$(MAIN_PDF): $(MAIN_TEX) $(MAIN_GLS) $(MAIN_BBL)
+	@echo "============================================================"
+	@echo "  Compilation finale"
+	@echo "============================================================"
+	@mkdir -p $(OUT_DIR)
+	@echo "→ xelatex (1/3)"
+	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
+	@echo "→ biber (relance)"
+	-$(BIBER) --input-directory $(BUILD_DIR) rapport_thinktank_fr_27-10_H
+	@echo "→ bib2gls (2e passage)"
+	-$(BIB2GLS) $(BIB2GLS_OPTS) rapport_thinktank_fr_27-10_H
+	@echo "→ xelatex (2/3)"
+	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
+	@echo "→ xelatex (3/3) — stabilisation"
+	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
+	@if [ -f $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.pdf ]; then \
+		cp $(BUILD_DIR)/rapport_thinktank_fr_27-10_H.pdf $(MAIN_PDF); \
+		echo ""; \
+		echo "✅ PDF généré : $(MAIN_PDF)"; \
+		ls -lh $(MAIN_PDF); \
+	else \
+		echo ""; \
+		echo "❌ ÉCHEC : le PDF n'a pas été généré."; \
+		exit 1; \
+	fi
+
+# ============================================================
+# Cibles utilitaires
+# ============================================================
+index: clean_index $(MAIN_GLS) $(MAIN_BBL)
+
+clean_index:
+	@rm -f $(BUILD_DIR)/*.idx $(BUILD_DIR)/*.ind $(BUILD_DIR)/*.glo \
+		$(BUILD_DIR)/*.gls $(BUILD_DIR)/*.glsdefs $(BUILD_DIR)/*.bbl \
+		$(BUILD_DIR)/*.bcf $(BUILD_DIR)/*.glg $(BUILD_DIR)/*.glstex
+
+analyse:
+	@echo "=== Analyse des occurrences ==="
+	$(PYTHON) $(SCRIPTS_DIR)/extraire_occurrences.py
+
+manquants:
+	@echo "=== Détection des termes manquants ==="
+	$(PYTHON) $(SCRIPTS_DIR)/detecter_manquants.py
+
+test:
+	@echo "=== Test de conversion Pandoc ==="
+	@mkdir -p $(BUILD_DIR)
+	$(PANDOC) $(PANDOC_OPTS) -o $(BUILD_DIR)/test.tex $(MAIN_MD)
+	@echo "✅ $(BUILD_DIR)/test.tex"
+
+clean:
+	@echo "============================================================"
+	@echo "  Nettoyage temporaire"
+	@echo "============================================================"
+	rm -f $(BUILD_DIR)/*.aux $(BUILD_DIR)/*.log $(BUILD_DIR)/*.out $(BUILD_DIR)/*.toc \
+		$(BUILD_DIR)/*.idx $(BUILD_DIR)/*.ind $(BUILD_DIR)/*.ilg \
+		$(BUILD_DIR)/*.glo $(BUILD_DIR)/*.gls $(BUILD_DIR)/*.glg \
+		$(BUILD_DIR)/*.bbl $(BUILD_DIR)/*.bcf $(BUILD_DIR)/*.blg \
+		$(BUILD_DIR)/*.run.xml $(BUILD_DIR)/*.fls $(BUILD_DIR)/*.fdb_latexmk \
+		$(BUILD_DIR)/*.synctex.gz $(BUILD_DIR)/*.xdv $(BUILD_DIR)/*.glsdefs \
+		$(BUILD_DIR)/*.glstex
+	@echo "✅ Nettoyé"
+
+cleanall: clean
+	@echo "============================================================"
+	@echo "  Nettoyage complet"
+	@echo "============================================================"
+	rm -rf $(BUILD_DIR) $(OUT_DIR)
+	@echo "✅ Tout nettoyé"
+
+help:
+	@echo "============================================================"
+	@echo "  Makefile — Markdown → LaTeX → PDF (bib2gls + biber)"
+	@echo "============================================================"
+	@echo "  make              → PDF complet"
+	@echo "  make inserer      → génère le Markdown indexé (\\glsadd)"
+	@echo "  make index        → régénère uniquement les index"
+	@echo "  make analyse      → occurrences des termes"
+	@echo "  make manquants    → termes absents du texte"
+	@echo "  make test         → test de conversion Pandoc"
+	@echo "  make clean        → nettoyage temporaire"
+	@echo "  make cleanall     → nettoyage total"
