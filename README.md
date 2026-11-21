@@ -4,7 +4,8 @@
 ## 复杂系统的离散拓扑与再生外交*
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22815393.svg)](https://doi.org/10.5281/zenodo.22815393)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22815392.svg)](https://doi.org/10.5281/zenodo.22815392)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23737301.svg)](https://doi.org/10.5281/zenodo.23737301)
 ![Documents](https://img.shields.io/badge/Documents-2%20Reports-blue)
 ![Languages](https://img.shields.io/badge/Languages-FR%20%7C%20EN%20%7C%20ZH-orange)
 
@@ -51,10 +52,10 @@ This repository contains **two complementary documents** designed for different 
 |----------|------|--------|
 | 🇨🇳 中文 | [rapport_thinktank_zh_15-09.md](Documents/zh/rapport_thinktank_zh_15-09.md) | ✅ Available |
 | 🇨🇳 中文 | [rapport_thinktank_zh_15-09.pdf](Documents/zh/rapport_thinktank_zh_15-09.pdf) | ✅ Available |
-| 🇬🇧 English | [rapport_thinktank_en_13-09.md](Documents/en/rapport_thinktank_en_13-09.md) | ✅ Available |
-| 🇬🇧 English | [rapport_thinktank_en_13-09.pdf](Documents/en/rapport_thinktank_en_13-09.pdf) | ✅ Available |
-| 🇫🇷 Français  | [rapport_thinktank_fr_17-09.md](Documents/fr/rapport_thinktank_fr_17-09.md) | ✅ Available |
-| 🇫🇷 Français  | [rapport_thinktank_fr_17-09.pdf](Documents/fr/rapport_thinktank_fr_17-09.pdf) | ✅ Available |
+| 🇬🇧 English | [rapport_thinktank_en_21-11.md](Documents/en/rapport_thinktank_en_21-11.md) | ✅ Available |
+| 🇬🇧 English | [rapport_thinktank_en_21-11.pdf](Documents/en/rapport_thinktank_en_21-11.pdf) | ✅ Available |
+| 🇫🇷 Français  | [rapport_thinktank_fr_27-10.md](Documents/fr/rapport_thinktank_fr_27-10.md) | ✅ Available |
+| 🇫🇷 Français  | [rapport_thinktank_fr_27-10.pdf](Documents/fr/rapport_thinktank_fr_27-10.pdf) | ✅ Available |
 
 ---
 
@@ -71,26 +72,41 @@ This repository contains **two complementary documents** designed for different 
 - 🔬 Readers seeking rigorous mathematical formalization and proofs
 
 **Key Features / 主要特点:**
-- ✅ ~260 pages, (480 pages for the 23-10 French release) comprehensive scientific monograph
+- ✅ >460 pages for the 21-11 & 23-10 English & French release comprehensive scientific monograph
 - ✅ Complete mathematical formalization in Clifford Algebra Cl(6,6)
 - ✅ 20 geographic & 20 economic pentads, 7 spectral thresholds, spectral observables
 - ✅ Rigorous proofs: nilpotence, spectral decomposition, tensorial decomposition
 - ✅ 20 detailed annexes (mathematical formalism, historical calibrations, algorithms)
-- ✅ Isomorphisms with particle physics, genetic code, phonology, Tang dinasty kinship
+- ✅ Isomorphisms with particle physics, genetic code, Chinese phonology, Tang dinasty kinship
 - ✅ Philosophical implications: Xiong Shili vs. Nāgārjuna, Vandermeersch's divinatory reason
+- ✅ Aporia of neo-classical & marxist economic theories 
 
 **Download / 下载:**
 | Language | File | Status |
 |----------|------|--------|
 | 🇫🇷 Français| [doc_unique_fr_23-10.md](Documents/fr/doc_unique_fr_23-10.md) | ✅ Available |
 | 🇫🇷 Français (480 pages) | [doc_unique_fr_23-10.pdf](Documents/fr/doc_unique_fr_23-10.pdf) | ✅ Available |
-| 🇬🇧 English | [doc_unique_en_15-09.md](Documents/en/doc_unique_en_15-09.md) | ✅ Available |
-| 🇬🇧 English (260 pages) | [doc_unique_en_15-09.pdf](Documents/en/doc_unique_en_15-09.pdf) | ✅ Available |
-| 🇨🇳 中文 | [doc_unique_zh_15-09.md](Documents/zh/doc_unique_zh_15-09.md) | ✅ Available |
-| 🇨🇳 中文 (202 pages) | [doc_unique_zh_15-09.pdf](Documents/zh/doc_unique_zh_15-09.pdf) | ✅ Available |
+| 🇬🇧 English | [doc_unique_en_21-11.md](Documents/en/doc_unique_en_21-11.md) | ✅ Available |
+| 🇬🇧 English (465 pages) | [doc_unique_en_21-11.pdf](Documents/en/doc_unique_en_21-11.pdf) | ✅ Available |
+| 🇨🇳 中文 (Version antérieure) | [doc_unique_zh_15-09.md](Documents/zh/doc_unique_zh_15-09.md) | ⚠️ Legacy |
+| 🇨🇳 中文 (~300 pages) | *Traduction en cours / Translation in progress* | 🚧 Coming soon |
 ---
 
-## 🧭 Which Report Should I Read? | 我应该阅读哪份报告？
+## ## 🆕 What's New in Latest English Release (21-11) | 最新英文版本的新内容 (21-11)
+
+The latest English release (21-11) introduces the advanced theoretical and operational framework previously established in the French version (23-10), superseding the older Chinese version (15-09). Key upgrades include:
+最新英文版本 (21-11) 引入了此前已在法文版 (23-10) 中确立的高级理论与操作框架，取代了早期的英文草案 (15-09)。主要升级包括：
+
+- **Refined Algebraic Structure**: Explicit formulation of the tensor product $\mathrm{Cl}(6,0)_{\text{eco}} \otimes \mathrm{Cl}(0,6)_{\text{geo}}$, distinguishing 20 economic and 20 geographic attractors.
+  **代数结构精细化**：明确表述张量积 $\mathrm{Cl}(6,0)_{\text{eco}} \otimes \mathrm{Cl}(0,6)_{\text{geo}}$，区分出20个经济吸引子和20个地理吸引子。
+- **Four-Part Theoretical Convergence**: Formal integration of Nebe's exceptional lattice $\Lambda_{72}$ and Aksman's topological hydrodynamics (DSM-861) alongside Rebour and Rowlands.
+  **四重理论融合**：在雷布尔和罗兰兹的框架基础上，正式整合了尼贝的例外晶格 $\Lambda_{72}$ 和阿克斯曼的拓扑流体动力学（DSM-861）。
+- **Level 5+ Operational Indicators**: Introduction of advanced diagnostic metrics: Borromean topology, topological rupture threshold ($\mathcal{R}$), Heegner arithmetic gate, and dual-basis.
+  **5级+操作指标**：引入高级诊断指标：博罗梅安拓扑、拓扑破裂阈值 ($\mathcal{R}$)、黑格纳算术门和双基。
+- **Multi-Resolution Governance**: Extensible granularity via projection onto bivectors and trivectors of $\mathrm{Cl}(6,6)$, enabling policy steering from national to county scale.
+  **多分辨率治理**：通过投影到 $\mathrm{Cl}(6,6)$ 的双矢量和三矢量上实现可扩展的粒度，支持从国家到县级的政策调控。
+
+🧭 Which Report Should I Read? | 我应该阅读哪份报告？
 
 ### Choose the **Strategic Report** if / 如果您：
 - 🎯 You are a policymaker, government official, or strategic advisor
@@ -140,25 +156,46 @@ This advanced repository provides:
 
 ---
 
-## 📚 Citation | 引用
+## 📚 Citation & DOI Information | 引用与 DOI 信息
 
-If you use this model, data, or concepts in your research, please cite this repository:
+This repository hosts two distinct publications. Each has its own Digital Object Identifier (DOI) to ensure precise academic citation depending on the document you are referencing:
+本仓库托管了两份独立的出版物。每份都有其专属的数字对象标识符 (DOI)，以确保根据您引用的文档进行精确的学术引用：
 
-```bibtex
-@misc{dedominicis2026tiandao,
-  author       = {De Dominicis, Bruno},
-  title        = {The Economic Heavenly Way: Discrete Topology of Complex Systems and the Diplomacy of Regeneration},
-  year         = {2026},
-  month        = {September},
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.22815393},
-  url          = {https://github.com/bruno-dd470/TianDao-Topology}
-}
-```
+### 1. 📖 Comprehensive Scientific Report (doc_unique) | 综合科学报告
+*For researchers, academics, and mathematicians (~480 pages)*  
+*面向研究人员、学者和数学家（约480页）*
+- **DOI:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22815392.svg)](https://doi.org/10.5281/zenodo.22815392) 
+- **BibTeX:**
+  ```bibtex
+  @misc{dedominicis2026tiandao_scientific,
+    author       = {De Dominicis, Bruno},
+    title        = {The Chinese Economic Heavenly Way: Discrete Topology of Complex Systems and the Diplomacy of Regeneration},
+    year         = {2026},
+    month        = {November},
+    publisher    = {Zenodo},
+    doi          = {10.5281/zenodo.22815392},
+    url          = {https://github.com/bruno-dd470/TianDao-Topology}
+  }
+  ```
 
----
+### 2. 📊 Strategic Think-Tank Report | 决策者战略报告
+*For policymakers, government officials, and strategic advisors (~60-90 pages)*  
+*面向决策者、政府官员和战略顾问（约60-90页）*
+- **DOI:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23737301.svg)](https://doi.org/10.5281/zenodo.23737301)
+- **BibTeX:**
+  ```bibtex
+  @misc{dedominicis2026tiandao_strategic,
+    author       = {De Dominicis, Bruno},
+    title        = {The Economic Heavenly Way: Diagnosing Chinese Stasis and Deploying the Territorial Regeneration Rent (TRR)},
+    year         = {2026},
+    month        = {November},
+    publisher    = {Zenodo},
+    doi          = {10.5281/zenodo.23737301},
+    url          = {https://github.com/bruno-dd470/TianDao-Topology}
+  }
+  ```
 
-## ⚖️ License | 许可证
+⚖️ License | 许可证
 
 This work is licensed under the **Creative Commons Attribution 4.0 International License**.  
 You are free to share and adapt this work, provided you give appropriate credit to the original author.  
@@ -168,6 +205,6 @@ You are free to share and adapt this work, provided you give appropriate credit 
 
 ---
 
-*Repository maintained by Bruno DE DOMINICIS. Last updated: September 2026.*  
-*仓库由 Bruno DE DOMINICIS 维护。最后更新：2026年9月。*
+*Repository maintained by Bruno DE DOMINICIS. Last updated: November 2026.*  
+*仓库由 Bruno DE DOMINICIS 维护。最后更新：2026年11月。*
 

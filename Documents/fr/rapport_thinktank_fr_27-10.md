@@ -85,7 +85,8 @@ Ce document stratégique formalise un changement de paradigme dans la compréhen
 
 **5. La destruction de richesse peut être évitée.** Pour la première fois en deux millénaires, un État chinois dispose d'un outil pacifique — la rente de régénération territoriale (RRT) — pour court-circuiter le cycle fatal des effondrements dynastiques.
 
-**6. La RRT comme fondement d'une nouvelle diplomatie — la diplomatie de la régénération.** Au-delà de la Chine, la RRT fonde une nouvelle diplomatie. En démontrant qu'il est possible de sortir du « point nodal » sans destruction massive de richesse, la Chine offre au Sud global une alternative structurelle à l'impérialisme occidental. Cette « diplomatie des Deux Montagnes » positionne la Voie céleste économique (*Tiandao Jingji*, 天道经济) comme une nouvelle norme civilisationnelle viable.
+**6. La RRT comme fondement d'une nouvelle diplomatie — la diplomatie de la régénération.** Au-delà de la Chine, la RRT fonde une nouvelle diplomatie. En démontrant qu'il est possible de sortir du « point nodal » sans destruction massive de richesses, la Chine offre au Sud global une alternative structurelle à l'impérialisme occidental. **Plutôt que d'exporter un modèle d'extraction (caractérisé par une colonisation logistique et des usines vulnérables à la rente souveraine du pays hôte), la Chine peut exporter un modèle de régénération topologique : la Banque des Deux Montagnes, l'intégration du PNB écologique (GEP) dans les indicateurs de performance (KPI), et les Certificats d'Usufruit Régénératif.** Cette « diplomatie des Deux Montagnes » positionne la Voie Céleste Économique (*Tiandao Jingji*, 天道经济) comme un nouveau standard civilisationnel viable.
+
 
 ## L'architecture de pilotage à quatre niveaux
 

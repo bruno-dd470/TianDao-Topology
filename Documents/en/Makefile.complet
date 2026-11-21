@@ -2,65 +2,69 @@
 # MAKEFILE — Document Markdown → LaTeX → PDF avec index (bib2gls)
 # ============================================================
 # Auteur : Bruno De Dominicis
-# Projet : TianDao-Topology / PxF_réduit / creer_index
+# Projet : TianDao-Topology / Documents/en
 # ============================================================
-# Le Makefile est à la racine (fr/).
-# Les sources sont dans src/, bib/, images/, scripts/, template.tex.
-# Les fichiers compilés sont générés dans build/.
+# Commandes
+# make -f Makefile.complet : Compile le PDF complet + copie automatique vers out/ et la racine
+# make -f Makefile.complet pdf : Idem (cible par défaut)
+# make -f Makefile.complet inserer : Force la régénération du *_indexe.md (même si la source n'a pas changé)
+# make -f Makefile.complet publish : Recopie out/doc_unique_en_21-11.pdf vers la racine sans recompiler
+# make -f Makefile.complet index : Régénère uniquement les index (bib2gls + biber)
+# make -f Makefile.complet analyse : Analyse des occurrences des termes
+# make -f Makefile.complet manquants : Détecte les termes absents du texte
+# make -f Makefile.complet test : Test de conversion Pandoc (génère build/test.tex)
+# make -f Makefile.complet clean : Nettoyage temporaire (garde les PDF dans out/ et à la racine)
+# make -f Makefile.complet cleanall : Supprime build/ et out/ — le PDF racine est CONSERVÉ
+# make -f Makefile.complet help : Affiche l'aide
 # ============================================================
-SHELL       := /bin/bash
-PANDOC      := pandoc
-PDFLATEX    := xelatex
-BIB2GLS     := bib2gls
-BIBER       := biber
-PYTHON      := python3
+# Le Makefile est à la racine (en/).
+# Sources : src/, bib/, images/, scripts/, template.tex
+# Intermédiaires : build/   PDF final : out/ + racine (README)
+# ============================================================
+SHELL         := /bin/bash
+.DEFAULT_GOAL := all
+PANDOC        := pandoc
+PDFLATEX      := xelatex
+BIB2GLS       := bib2gls
+BIBER         := biber
+PYTHON        := python3
 
-# Répertoires (relatifs à la racine, où se trouve le Makefile)
-SRC_DIR     := src
-BIB_DIR     := bib
-SCRIPTS_DIR := scripts
-BUILD_DIR   := build
-OUT_DIR     := out
-IMG_DIR     := images
+# Répertoires
+SRC_DIR       := src
+BIB_DIR       := bib
+SCRIPTS_DIR   := scripts
+BUILD_DIR     := build
+OUT_DIR       := out
+IMG_DIR       := images
 
 # ============================================================
-# NOMS DE FICHIERS
+# NOM DU DOCUMENT — SEUL ENDROIT À MODIFIER POUR UNE NOUVELLE VERSION
 # ============================================================
-# Fichiers du rapport complet
-MAIN_MD      := $(SRC_DIR)/doc_unique_fr_26-10_indexe.md
-MD_SOURCE    := $(SRC_DIR)/doc_unique_fr_26-10.md
+DOCNAME       := doc_unique_en_21-11
 
-# Script dédié au rapport complet
-# INSERER_SCRIPT := $(SCRIPTS_DIR)/inserer_index_complet.py
-
-inserer:
-	@echo "============================================================"
-	@echo "  Insertion d'index — RAPPORT COMPLET"
-	@echo "  Script : $(INSERER_SCRIPT)"
-	@echo "  Source : $(MD_SOURCE)"
-	@echo "  Sortie : $(MAIN_MD)"
-	@echo "============================================================"
-	$(PYTHON) $(INSERER_SCRIPT) $(MD_SOURCE) $(MAIN_MD)
-
-
-TEMPLATE     := template.tex
-MAIN_TEX     := $(BUILD_DIR)/doc_unique_fr_26-10.tex
-MAIN_PDF     := $(OUT_DIR)/doc_unique_fr_26-10.pdf
-MAIN_AUX     := $(BUILD_DIR)/doc_unique_fr_26-10.aux
-MAIN_BCF     := $(BUILD_DIR)/doc_unique_fr_26-10.bcf
-MAIN_BBL     := $(BUILD_DIR)/doc_unique_fr_26-10.bbl
-MAIN_GLS     := $(BUILD_DIR)/doc_unique_fr_26-10.gls
+MAIN_MD       := $(SRC_DIR)/$(DOCNAME)_indexe.md
+MD_SOURCE     := $(SRC_DIR)/$(DOCNAME).md
+INSERER_SCRIPT := $(SCRIPTS_DIR)/inserer_index_complet.py
+TEMPLATE      := template.tex
+MAIN_TEX      := $(BUILD_DIR)/$(DOCNAME).tex
+MAIN_PDF      := $(OUT_DIR)/$(DOCNAME).pdf
+ROOT_PDF      := $(DOCNAME).pdf
+MAIN_AUX      := $(BUILD_DIR)/$(DOCNAME).aux
+MAIN_BCF      := $(BUILD_DIR)/$(DOCNAME).bcf
+MAIN_BBL      := $(BUILD_DIR)/$(DOCNAME).bbl
+MAIN_GLS      := $(BUILD_DIR)/$(DOCNAME).gls
 
 # ============================================================
 # BIBLIOGRAPHIE ET INDEX
 # ============================================================
-BIB_BIBLIO := $(BIB_DIR)/biblio-unique.bib
-BIB_INDEX  := $(BIB_DIR)/notations.bib $(BIB_DIR)/glossaire_v2.bib \
-              $(BIB_DIR)/mots_cles.bib
-BIB_ALL    := $(BIB_BIBLIO) $(BIB_INDEX)
+BIB_BIBLIO    := $(BIB_DIR)/biblio-unique.bib
+BIB_INDEX_RAW := $(BIB_DIR)/notations.bib $(BIB_DIR)/glossaire_v2.bib \
+$(BIB_DIR)/mots_cles.bib
+BIB_INDEX := $(wildcard $(BIB_INDEX_RAW))
+BIB_ALL   := $(wildcard $(BIB_BIBLIO) $(BIB_INDEX))
 
 # ============================================================
-# OPTIONS PANDOC
+# OPTIONS
 # ============================================================
 PANDOC_OPTS := -f markdown+raw_tex+pipe_tables+footnotes+tex_math_dollars+tex_math_single_backslash+raw_attribute \
 --shift-heading-level-by=-1 \
@@ -72,33 +76,40 @@ PANDOC_OPTS := -f markdown+raw_tex+pipe_tables+footnotes+tex_math_dollars+tex_ma
 --template=$(TEMPLATE) \
 --biblatex \
 --bibliography=$(BIB_DIR)/biblio-unique.bib \
---variable=lang:fr \
+--variable=lang:en \
 --variable=colorlinks:true \
 --variable=linkcolor:blue \
 --variable=urlcolor:blue \
---variable=toc-title:"Table des matières" \
+--variable=toc-title:"Content" \
 --resource-path=$(SRC_DIR):$(IMG_DIR):. \
 --variable=biblatexoptions:"backend=biber,style=authoryear,sorting=nyt"
 
-# Compilation LaTeX : sortie dans build/
 PDFLATEX_OPTS := -interaction=nonstopmode -halt-on-error -output-directory=$(BUILD_DIR) -shell-escape
-# bib2gls : lit le .aux dans build/, écrit dans build/
+BIBER_OPTS    := --input-directory $(BUILD_DIR) --output-directory $(BUILD_DIR)
 BIB2GLS_OPTS  := --dir $(BUILD_DIR) --tex-encoding utf8 --group
 
-.PHONY: all pdf inserer index analyse manquants test clean clean_index cleanall help
-
+.PHONY: all pdf inserer publish index analyse manquants test clean clean_index cleanall help
 all: pdf
-
 pdf: $(MAIN_PDF)
 
 # ============================================================
-# CIBLE INSERTION — Génère le MD indexé avec \glsadd{}
+# INSERTION — Génère le MD indexé avec \glsadd{}
 # ============================================================
-inserer:
+$(MAIN_MD): $(MD_SOURCE) $(INSERER_SCRIPT)
 	@echo "============================================================"
 	@echo "  Insertion automatique des \\glsadd{}"
+	@echo "  Source : $(MD_SOURCE)"
+	@echo "  Sortie : $(MAIN_MD)"
 	@echo "============================================================"
-	$(PYTHON) $(SCRIPTS_DIR)/inserer_index_complet.py
+	$(PYTHON) $(INSERER_SCRIPT) $(MD_SOURCE) $(MAIN_MD)
+	@echo "✅ Markdown indexé : $(MAIN_MD)"
+
+inserer:
+	@echo "============================================================"
+	@echo "  Insertion FORCÉE des \\glsadd{}"
+	@echo "============================================================"
+	$(PYTHON) $(INSERER_SCRIPT) $(MD_SOURCE) $(MAIN_MD)
+	@echo "✅ Markdown indexé : $(MAIN_MD)"
 
 # ============================================================
 # Conversion Markdown indexé → LaTeX
@@ -129,7 +140,7 @@ $(MAIN_BBL): $(MAIN_AUX)
 	@echo "  Étape 2/4 : Bibliographie (biber)"
 	@echo "============================================================"
 	@if [ -f $(MAIN_BCF) ]; then \
-		$(BIBER) --input-directory $(BUILD_DIR) doc_unique_fr_26-10; \
+		$(BIBER) $(BIBER_OPTS) $(DOCNAME); \
 		echo "✅ Bibliographie générée"; \
 	else \
 		echo "⚠️ Fichier .bcf non trouvé"; \
@@ -143,14 +154,14 @@ $(MAIN_GLS): $(MAIN_AUX) $(BIB_INDEX)
 	@echo "  Étape 3/4 : bib2gls — 1er passage"
 	@echo "============================================================"
 	@if [ -f $(MAIN_AUX) ]; then \
-		$(BIB2GLS) $(BIB2GLS_OPTS) doc_unique_fr_26-10; \
+		$(BIB2GLS) $(BIB2GLS_OPTS) $(DOCNAME); \
 		echo "✅ bib2gls 1er passage OK"; \
 	else \
 		echo "⚠️ Fichier .aux introuvable"; \
 	fi
 
 # ============================================================
-# Compilation finale
+# Compilation finale + déploiement à la racine
 # ============================================================
 $(MAIN_PDF): $(MAIN_TEX) $(MAIN_GLS) $(MAIN_BBL)
 	@echo "============================================================"
@@ -160,21 +171,36 @@ $(MAIN_PDF): $(MAIN_TEX) $(MAIN_GLS) $(MAIN_BBL)
 	@echo "→ xelatex (1/3)"
 	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
 	@echo "→ biber (relance)"
-	-$(BIBER) --input-directory $(BUILD_DIR) doc_unique_fr_26-10
+	-$(BIBER) $(BIBER_OPTS) $(DOCNAME)
 	@echo "→ bib2gls (2e passage)"
-	-$(BIB2GLS) $(BIB2GLS_OPTS) doc_unique_fr_26-10
+	-$(BIB2GLS) $(BIB2GLS_OPTS) $(DOCNAME)
 	@echo "→ xelatex (2/3)"
 	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
 	@echo "→ xelatex (3/3) — stabilisation"
 	$(PDFLATEX) $(PDFLATEX_OPTS) $(MAIN_TEX)
-	@if [ -f $(BUILD_DIR)/doc_unique_fr_26-10.pdf ]; then \
-		cp $(BUILD_DIR)/doc_unique_fr_26-10.pdf $(MAIN_PDF); \
+	@if [ -f $(BUILD_DIR)/$(DOCNAME).pdf ]; then \
+		cp $(BUILD_DIR)/$(DOCNAME).pdf $(MAIN_PDF); \
+		cp $(BUILD_DIR)/$(DOCNAME).pdf $(ROOT_PDF); \
 		echo ""; \
-		echo "✅ PDF généré : $(MAIN_PDF)"; \
-		ls -lh $(MAIN_PDF); \
+		echo "✅ PDF généré      : $(MAIN_PDF)"; \
+		echo "✅ PDF publié (racine) : $(ROOT_PDF)"; \
+		ls -lh $(MAIN_PDF) $(ROOT_PDF); \
 	else \
 		echo ""; \
 		echo "❌ ÉCHEC : le PDF n'a pas été généré."; \
+		exit 1; \
+	fi
+
+# ============================================================
+# PUBLISH — recopie le PDF vers la racine sans recompiler
+# ============================================================
+publish:
+	@if [ -f $(MAIN_PDF) ]; then \
+		cp $(MAIN_PDF) $(ROOT_PDF); \
+		echo "✅ PDF publié : $(ROOT_PDF)"; \
+		ls -lh $(ROOT_PDF); \
+	else \
+		echo "❌ $(MAIN_PDF) introuvable — lancez d'abord make pdf"; \
 		exit 1; \
 	fi
 
@@ -204,7 +230,7 @@ test:
 
 clean:
 	@echo "============================================================"
-	@echo "  Nettoyage temporaire"
+	@echo "  Nettoyage temporaire (garde les PDF)"
 	@echo "============================================================"
 	rm -f $(BUILD_DIR)/*.aux $(BUILD_DIR)/*.log $(BUILD_DIR)/*.out $(BUILD_DIR)/*.toc \
 		$(BUILD_DIR)/*.idx $(BUILD_DIR)/*.ind $(BUILD_DIR)/*.ilg \
@@ -213,24 +239,26 @@ clean:
 		$(BUILD_DIR)/*.run.xml $(BUILD_DIR)/*.fls $(BUILD_DIR)/*.fdb_latexmk \
 		$(BUILD_DIR)/*.synctex.gz $(BUILD_DIR)/*.xdv $(BUILD_DIR)/*.glsdefs \
 		$(BUILD_DIR)/*.glstex
+	# résidus éventuels à la racine (biber mal configuré un jour)
+	rm -f $(DOCNAME).bbl $(DOCNAME).blg $(DOCNAME).bcf $(DOCNAME).run.xml
 	@echo "✅ Nettoyé"
 
 cleanall: clean
 	@echo "============================================================"
-	@echo "  Nettoyage complet"
+	@echo "  Nettoyage complet (build/ + out/)"
+	@echo "  Le PDF publié à la racine est CONSERVÉ"
 	@echo "============================================================"
 	rm -rf $(BUILD_DIR) $(OUT_DIR)
-	@echo "✅ Tout nettoyé"
+	@echo "✅ Tout nettoyé (racine : $(ROOT_PDF) conservé)"
 
 help:
 	@echo "============================================================"
-	@echo "  Makefile — Markdown → LaTeX → PDF (bib2gls + biber)"
+	@echo "  Makefile.complet — $(DOCNAME)"
 	@echo "============================================================"
-	@echo "  make              → PDF complet"
-	@echo "  make inserer      → génère le Markdown indexé (\\glsadd)"
+	@echo "  make              → PDF complet + copie à la racine"
+	@echo "  make inserer      → FORCE la régénération du MD indexé"
+	@echo "  make publish      → recopie out/$(DOCNAME).pdf vers la racine"
 	@echo "  make index        → régénère uniquement les index"
-	@echo "  make analyse      → occurrences des termes"
-	@echo "  make manquants    → termes absents du texte"
 	@echo "  make test         → test de conversion Pandoc"
-	@echo "  make clean        → nettoyage temporaire"
-	@echo "  make cleanall     → nettoyage total"
+	@echo "  make clean        → nettoyage temporaire (garde les PDF)"
+	@echo "  make cleanall     → supprime build/ et out/ (garde le PDF racine)"

@@ -1,18 +1,23 @@
-%pandoc rapport_thinktank_fr.md --template=../../Templates/template.tex \ -o rapport_thinktank_fr.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --toc --toc-depth=3
-%latexmk -xelatex -silent rapport_thinktank_fr.tex
 
-%pandoc doc_unique_en_10-09.md --template=template.tex -o doc_unique_en_10-09.tex --pdf-engine=xelatex -f markdown+tex_math_single_backslash --bibliography=biblio-unique.bib --biblatex --toc --toc-depth=3
-%latexmk -xelatex -silent doc_unique_en_10-09.tex
-
-%pandoc doc_unique_en_10-09.md \
-%  --template=../../Templates/template.tex \
-%  -o doc_unique_en_10-09.tex \
-%  --pdf-engine=xelatex \
+%décalage des titres
+%pandoc doc_unique_en_26-10.md \
+%  --template=template.tex \
+%  -o doc_unique_en_26-10.tex \
 %  -f markdown+tex_math_single_backslash \
-%  --bibliography=../../Bibliography/biblio-unique.bib \
+%  --shift-heading-level-by=-1 \
+%  --bibliography=bib/biblio-unique.bib \
 %  --biblatex \
-%  --toc --toc-depth=3
+%  --toc --toc-depth=4
+% latexmk -xelatex -silent doc_unique_en_26-10.tex
 
+
+% pandoc rapport_thinktank_en_25-10.md \
+%   --template=template.tex \
+%   -o rapport_thinktank_en_25-10.tex \
+%   --pdf-engine=xelatex \
+%   -f markdown+tex_math_single_backslash \
+%   --toc --toc-depth=4
+% latexmk -xelatex rapport_thinktank_en_25-10.tex
 
 
 % ==================== CODAGE MATH vu par PANDOC ====================
@@ -26,16 +31,21 @@
 
 %======erreur BUG nom de fichier BIB=================
 % attention: pas d'accent et pas de tiret bas dans le nom de fichier bib
+% ======================================================
 
 % ==========détection des erreurs dans le fichier log==========
-%  grep -n "^!" doc_unique_en_zai.log
+%  grep -n "^!" doc_unique_en_26-10.log
 % ======================================================
+
 
 \documentclass[11pt]{article}
 \tracinglostchars=2
 
 %\usepackage[no-math]{fontspec}
 \usepackage{fontspec}
+\usepackage{csquotes}
+\usepackage[utf8]{inputenc} % (Devenu inutile et par défaut depuis LaTeX 2018, mais ne fait pas de mal)
+\usepackage[T1]{fontenc}    % <-- INDISPENSABLE pour que le "œ" soit bien géré par pdfLaTeX
 
 % ==================== GESTION DE LA LANGUE ====================
 \usepackage{etoolbox}
@@ -48,6 +58,8 @@
 % pour éviter qu'il ne casse xeCJK qui gère déjà parfaitement le chinois.
 \ifstrequal{\doclang}{fr}{%
   \usepackage[french]{babel}%
+  % Ponctuation française : espace insécable automatique avant ? ! : ;
+  \frenchsetup{AutoSpacePunctuation=true}%
 }{%
   \usepackage[english]{babel}%
 }
@@ -56,23 +68,45 @@
 \newcommand{\ifdoclang}[3]{%
   \ifstrequal{\doclang}{#1}{#2}{#3}%
 }
-% ===============================================================
 
+% ===============================================================
 \usepackage{xeCJK}
 % Support des trigrammes du Yijing (Unicode)
 \usepackage{newunicodechar}
-\newunicodechar{☰}{\ensuremath{\equiv}}
-\newunicodechar{☷}{\ensuremath{\equiv\!\!\!\equiv}}
-\newunicodechar{☳}{\ensuremath{\equiv\!\!\!-}}
-\newunicodechar{☴}{\ensuremath{-\!\!\!\equiv}}
-\newunicodechar{☵}{\ensuremath{-\!\!\!-}}
-\newunicodechar{☲}{\ensuremath{\equiv\!\!\!\equiv}}
-\newunicodechar{☶}{\ensuremath{-\!\!\!\equiv}}
-\newunicodechar{☱}{\ensuremath{\equiv\!\!\!-}}
 
+% ============================================================
+% SUPPORT DES TRIGRAMMES UTF-8 (Yi Jing) via DejaVu Sans
+% ============================================================
+\newfontfamily{\trigramfont}{DejaVu Sans}[Scale=MatchLowercase]
+
+% Commandes pour garantir un rendu propre, net et uniforme des trigrammes
+\newcommand{\Qian}{{\trigramfont ☰}} % Ciel
+\newcommand{\Kun}{{\trigramfont ☷}}  % Terre
+\newcommand{\Zhen}{{\trigramfont ☳}} % Tonnerre
+\newcommand{\Kan}{{\trigramfont ☵}}  % Eau
+\newcommand{\Dui}{{\trigramfont ☱}}  % Lac
+\newcommand{\Xun}{{\trigramfont ☴}}  % Vent
+\newcommand{\Gen}{{\trigramfont ☶}}  % Montagne
+\newcommand{\Li}{{\trigramfont ☲}}   % Feu
+
+% --- Support des caractères tapés directement dans le Markdown ---
+% Si vous tapez ☲ dans le texte au lieu de faire \Li, ces lignes
+% interceptent le caractère brut et lui appliquent la bonne police.
+
+\newunicodechar{☰}{\Qian}
+\newunicodechar{☷}{\Kun}
+\newunicodechar{☳}{\Zhen}
+\newunicodechar{☴}{\Xun}
+\newunicodechar{☵}{\Kan}
+\newunicodechar{☲}{\Li}
+\newunicodechar{☶}{\Gen}
+\newunicodechar{☱}{\Dui}
+
+% ============================================================
 % --- Support des caractères Pinyin (accents carons/háček) ---
 % Libertinus Serif manque parfois ces glyphes en gras/italique
 % --- Support des caractères Pinyin (accents carons/háček) ---
+
 \newunicodechar{ǎ}{\v{a}}
 \newunicodechar{Ǎ}{\v{A}}
 \newunicodechar{ǐ}{\v{i}}   % <--- AJOUTEZ CETTE LIGNE
@@ -116,10 +150,29 @@
 % ==================== MATHÉMATIQUES ====================
 \usepackage{amsmath}
 \usepackage{mathtools}
+
+% --- AJOUT : Package amsthm et définition des environnements ---
+\usepackage{amsthm}
+
+\theoremstyle{definition} % Texte en romain (pour définitions, exemples)
+\newtheorem{definition}{Définition}[section]
+\newtheorem{example}{Exemple}[section]
+\newtheorem{property}{Propriété}[section]
+\newtheorem{principle}{Principe}[section]
+
+\theoremstyle{plain} % Texte en italique (pour théorèmes, lemmes)
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{corollary}{Corollaire}[section]
+
+\theoremstyle{remark} % Texte en romain, sans numérotation forte
+\newtheorem{remark}{Remarque}[section]
+\newtheorem{note}{Note}[section]
+% -----------------------------------------------------------------
+
 \usepackage{unicode-math}
 \setmathfont{Libertinus Math}
 \setmathfont{Libertinus Math}[range={cal,bfcal}, Scale=MatchLowercase]
-
 \setcounter{secnumdepth}{0}
 
 % ==================== COMMANDES PERSONNALISÉES ====================
@@ -132,13 +185,55 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
-% Symboles de validation
+
+% ============================================================
+% COULEURS ET SYMBOLES
+% ============================================================
+\usepackage[dvipsnames,table]{xcolor}  % ← UN SEUL chargement avec options
+
+% Définition des couleurs (fusionnées)
+% ============================================================
+% COULEURS ET SYMBOLES
+% ============================================================
+\usepackage[dvipsnames,table]{xcolor}
+% Définition des couleurs (fusionnées)
+\definecolor{green60}{RGB}{0,150,0}
+\definecolor{success}{RGB}{0,150,0}
+\definecolor{failure}{RGB}{200,0,0}
+\definecolor{warning}{RGB}{255,140,0}
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{amber}{RGB}{255,191,0}  % ← AJOUTER CETTE LIGNE
+\definecolor{terminal}{RGB}{139,0,0}  % rouge foncé
+\definecolor{shengmod}{RGB}{255,165,0}
+\definecolor{kefort}{RGB}{100,149,237}
+\definecolor{kemod}{RGB}{196,228,255}
+
+% Symboles de validation (nécessite pifont)
+\usepackage{pifont}
 \providecommand{\cmark}{\ding{51}}
 \providecommand{\xmark}{\ding{55}}
 \providecommand{\wmark}{\ding{73}}
+
+% Commandes de symboles colorés
 \newcommand{\symSucces}{\textcolor{success}{\cmark}}
 \newcommand{\symEchec}{\textcolor{failure}{\xmark}}
 \newcommand{\symAttention}{\textcolor{warning}{\wmark}}
+\newcommand{\fin}{\hfill\(\square\)} % CQFD
+
+% --- GESTION DES EMOJIS (⚠️, ❌) ---
+\newunicodechar{⚠}{\symAttention} % Remplace l'emoji par votre symbole pifont orange
+\newunicodechar{️}{}                % Ignore le caractère invisible U+FE0F
+\newunicodechar{❌}{\symEchec}      % Remplace l'emoji croix rouge par votre symbole pifont rouge
+\newunicodechar{✗}{\symEchec}      % Remplace l'emoji croix rouge par votre symbole pifont rouge
+\newunicodechar{✓}{\symSucces} % Remplace l'emoji par votre symbole pifont orange
+\newunicodechar{✅}{\symSucces} % Remplace l'emoji par votre symbole pifont orange
+
+% Coche verte (✅)
+%\newcommand{\ok}{\symSucces}
+%\newcommand{\mycheck}{\symSucces}
+
+% Commandes mathématiques
+\newcommand{\gap}{\operatorname{gap}}
 
 % ==================== ESPACEMENTS GÉNÉRAUX ====================
 \usepackage{setspace}
@@ -163,33 +258,29 @@
 \titlespacing*{\paragraph}{0pt}{10pt plus 4pt}{4pt plus 2pt}
 
 % ==================== TABLE DES MATIÈRES ====================
-\usepackage{tocloft}
+\usepackage[titles]{tocloft}
 
-% --- Structure et indentation ---
-\setlength{\cftsecindent}{0pt}
-\setlength{\cftsubsecindent}{10pt}
-\setlength{\cftsubsubsecindent}{20pt}
+% --- Structure et indentation (l'effet d'escalier) ---
+\setlength{\cftpartindent}{0pt}        % Pour # (Partie I) -> 0pt
+\setlength{\cftsecindent}{0pt}         % Pour ## (1. Introduction) -> 0pt
+\setlength{\cftsubsecindent}{10pt}      % Pour ### (1.1 Le constat) -> 15pt
+\setlength{\cftsubsubsecindent}{20pt}  % Pour #### (1.1.1 L'indépendance) -> 30pt
+\setlength{\cftparaindent}{30pt}       % Pour ##### (1.1.1.1) -> 45pt
 
 % --- Pointillés de conduite ---
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}} % Pointillés pour le niveau 4
 
 % --- Espacement avant chaque entrée ---
 \setlength{\cftbeforesecskip}{2pt plus 1pt}
 \setlength{\cftbeforesubsecskip}{1pt plus 0.5pt}
 
-% --- Pénalités typographiques ---
-\clubpenalty=10000
-\widowpenalty=10000
-
 % --- Profondeur de la table des matières ---
-$if(toc-depth)$
-\setcounter{tocdepth}{$toc-depth$}
-$else$
-\setcounter{tocdepth}{1}
-$endif$
-
+ $if(toc-depth)$ \setcounter{tocdepth}{$toc-depth$}
+ $else$ \setcounter{tocdepth}{1}
+ $endif$ 
 % --- Traduction du titre TOC ---
 \ifdoclang{fr}{%
   \renewcommand{\contentsname}{Table des matières}%
@@ -200,6 +291,7 @@ $endif$
     \renewcommand{\contentsname}{Table of Contents}%
   }%
 }
+
 % ==================== GÉOMÉTRIE ET MISE EN PAGE ====================
 \usepackage{geometry}
 \geometry{
@@ -207,6 +299,7 @@ $endif$
   headsep=4mm,
   footskip=12pt
 }
+\setlength{\footskip}{13.6pt} % <--- AJOUT ICI pour corriger le warning fancyhdr
 
 \setlength{\headheight}{14pt}
 \addtolength{\topmargin}{-2pt}
@@ -215,6 +308,7 @@ $endif$
 % ==================== TABLEAUX ====================
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{ragged2e}
 \usepackage{colortbl}
 \usepackage{rotating}
 \usepackage{multirow}
@@ -223,16 +317,14 @@ $endif$
 \usepackage{placeins}
 \usepackage{booktabs}
 \usepackage{caption}  
+\usepackage{makecell}
+\usepackage{xltabular}
+\usepackage{needspace}
+
 \setlength{\LTpre}{6pt}
 \setlength{\LTpost}{6pt}
 \setlength{\extrarowheight}{2pt}
 
-% ==================== COULEURS ====================
-\usepackage{xcolor}
-\definecolor{success}{RGB}{0,150,0}
-\definecolor{failure}{RGB}{200,0,0}
-\definecolor{warning}{RGB}{255,140,0}
-\definecolor{codebg}{RGB}{245,245,245}
 
 % ==================== INSERTION DES COMMANDES YAML ====================
  $header-includes$ 
@@ -255,7 +347,7 @@ $endif$
 
 % ==================== BOÎTES ET ENCADRÉS ====================
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta, calc} 
+\usetikzlibrary{positioning, arrows.meta, calc, decorations, decorations.pathmorphing}
 \usepackage[most]{tcolorbox}
 
 % --- Vos anciennes boîtes ---
@@ -300,6 +392,7 @@ $endif$
 
 % ==================== FIGURES ET IMAGES ====================
 \usepackage{graphicx}
+\graphicspath{{images/}{src/}{./}{../images/}{../src/}}
 \setkeys{Gin}{keepaspectratio=true}
 \usepackage{capt-of}
 \usepackage{pdflscape}
@@ -317,23 +410,22 @@ $endif$
 
 % ==================== EN-TÊTE ET PIED DE PAGE ====================
 \usepackage{fancyhdr}
-\setlength{\footskip}{13.6pt}
+%\setlength{\footskip}{13.6pt}
 
-\setlength{\headsep}{4mm}
-\setlength{\topmargin}{-2cm}   % Réduit l'espace au-dessus de l'en-tête
-\setlength{\headheight}{14pt}
+%\setlength{\headsep}{4mm}
+%\setlength{\topmargin}{-2cm}   % Réduit l'espace au-dessus de l'en-tête
+%\setlength{\headheight}{14pt}
 
-% La variable $lang$ est automatiquement définie par Pandoc
 \newcommand{\headerTitle}{%
-  \ifnum\pdfstrcmp{$lang$}{fr}=0
-    La voie céleste économique et la théorie du Rachat
-  \else
-    \ifnum\pdfstrcmp{$lang$}{zh}=0
-      經濟天道與贖買理論
-    \else
-      The Economic Heavenly Way and the Theory of Rent Extraction
-    \fi
-  \fi
+\ifstrequal{$lang$}{fr}{%
+La voie céleste économique et la théorie du Rachat
+}{%
+\ifstrequal{$lang$}{zh}{%
+經濟天道與贖買理論
+}{%
+The Economic Heavenly Way and the Theory of Rent Extraction
+}%
+}%
 }
 
 \pagestyle{fancy}
@@ -379,97 +471,70 @@ $endif$
 % \textbackslash{}.
 
 
+% --- Formater \part : saut de page avant + police plus petite ---
 \makeatletter
-
-\renewcommand{\maketitle}{
-  \begin{center}
-
-    \vspace*{1cm}
-
-
-    % --------------------------------------------------------
-    % TITRE PRINCIPAL
-    % --------------------------------------------------------
-
-    \begin{minipage}{0.95\textwidth}
-      \centering
-      \fontsize{20}{26}\selectfont
-      \textbf{$title$%
-        $if(title2)$
-          \\
-          $title2$
-        $endif$%
-        $if(title3)$
-          \\
-          $title3$
-        $endif$%
-      }
-    \end{minipage}
-
-
-    % --------------------------------------------------------
-    % SOUS-TITRE
-    % --------------------------------------------------------
-
-    $if(subtitle)$
-
-      \vspace{0.4cm}
-
-      \begin{minipage}{0.95\textwidth}
-        \centering
-        \fontsize{13}{16}\selectfont
-        \itshape
-        $subtitle$
-      \end{minipage}
-
-    $endif$
-
-
-    % --------------------------------------------------------
-    % AUTEUR
-    % --------------------------------------------------------
-
-    $if(author)$
-
-      \vspace{0.6cm}
-
-      \begin{minipage}{0.95\textwidth}
-        \centering
-        \Large
-        $author$
-      \end{minipage}
-
-    $endif$
-
-
-    % --------------------------------------------------------
-    % DATE
-    % --------------------------------------------------------
-
-    $if(date)$
-
-      \vspace{0.6cm}
-      \Large $date$
-
-    $endif$
-
-
-  \end{center}
-
-  \vspace{1cm}
-}
-
+\renewcommand\part{\@startsection{part}{0}{\z@}%
+  {18pt plus 6pt minus 3pt}%
+  {12pt plus 3pt}%
+  {\clearpage\normalfont\large\bfseries}} % \clearpage force le saut de page
 \makeatother
 
+% ==================== GLOSSAIRES ET INDEX (bib2gls) ====================
+% --- Configuration de glossaries-extra pour bib2gls ---
+\usepackage[record,style=indexgroup,undefaction=warn]{glossaries-extra}
+
+% --- Déclaration des champs personnalisés (pour exploitation dans le style) ---
+% Cela évite les warnings de bib2gls et permet d'appeler ces données plus tard
+\glsaddstoragekey{domain}{}{\glsentrydomain}
+\glsaddstoragekey{status}{}{\glsentrystatus}
+\glsaddstoragekey{anchor}{}{\glsentryanchor}
+\glsaddstoragekey{bibpiste}{}{\glsentrybibpiste}
+
+% --- Déclaration des types de glossaires ---
+\newglossary*{notations}{Index des notations}
+\newglossary*{concepts}{Index des concepts}
+\newglossary*{motscles}{Index des mots-clés}
+
+% --- Chargement des ressources ---
+
+% 1. Notations (fichier séparé)
+\GlsXtrLoadResources[
+  src = {bib/notations},
+  type = notations,
+  sort = fr,
+  selection = {recorded and deps},   % ← CORRIGÉ (avant : all)
+  entry-type-aliases = {misc=entry}
+]
+
+% 2. Glossaire principal V2
+\GlsXtrLoadResources[
+  src = {bib/glossaire_v2},
+  type = concepts,
+  sort = fr,
+  selection = {recorded and deps},   % ← CORRIGÉ (avant : all)
+  entry-type-aliases = {misc=entry}
+]
+
+% 3. Mots-clés manuels
+\GlsXtrLoadResources[
+  src = {bib/mots_cles},
+  type = motscles,
+  sort = fr,
+  selection = {recorded and deps},   % ← CORRIGÉ (avant : all)
+  entry-type-aliases = {misc=entry}
+]
+
 % ==================== BIBLATEX SUPPORT ====================
- $if(biblatex)$ 
-\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+$if(biblatex)$ 
+%\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\usepackage[$if(biblatexoptions)$$biblatexoptions$$else$backend=biber,style=authoryear,sorting=nyt$endif$]{biblatex}
  $if(bibliography)$  
  $for(bibliography)$ 
 \addbibresource{$bibliography$}
  $endfor$  
  $endif$ 
  $endif$ 
+
 % ==================== HYPERLIENS ====================
 \usepackage{hyperref}
 \hypersetup{
@@ -477,6 +542,27 @@ $endif$
   linkcolor=blue,
   urlcolor=blue,
   citecolor=blue
+}
+
+% --- PROTECTION DES SIGNETS PDF (Bookmarks) ---
+% Empêche hyperref de planter quand les titres contiennent des formules
+%mathématiques
+\pdfstringdefDisableCommands{%
+  \def\mathrm#1{}%
+  \def\mathbb#1{}%
+  \def\mathcal#1{}%
+  \def\mathbf#1{}%
+  \def\otimes{}%
+  \def\chi{}%
+  \def\eta{}%
+  \def\to{}%
+  \def\in{}%
+  \def\times{}%
+  \def\lambda{}%
+  \def\Gamma{}%
+  \def\sigma{}%
+  \def\varepsilon{}%
+  \def\textit#1{#1}%
 }
 
 % ==================== FORÇAGE TYPO TOC (après hyperref) ====================
@@ -491,6 +577,10 @@ $endif$
 % --- Sous-sous-sections : maigre, plus indentées ---
 \renewcommand{\cftsubsubsecfont}{\normalfont}
 \renewcommand{\cftsubsubsecpagefont}{\normalfont}
+
+% --- Paragraphes (niveau 4) : maigre, encore plus indentées ---
+\renewcommand{\cftparafont}{\normalfont} % <--- AJOUT
+\renewcommand{\cftparapagefont}{\normalfont} % <--- AJOUT
 
 % ==================== PROTECTION LIGNES ORPHELINES ====================
 \clubpenalty=10000
@@ -565,7 +655,7 @@ $endif$
 }
 \makeatother
 
-\usepackage{xltabular}
+
 
 % ==================== CORPS DU DOCUMENT ====================
 \begin{document}
@@ -612,8 +702,18 @@ $endif$
 
  $body$ 
 % ==================== BIBLIOGRAPHIE ====================
- $if(biblatex)$ 
+% $if(biblatex)$ 
+% $if(bibliography)$ 
 %\printbibliography[title={\ifdoclang{fr}{Références}{\ifdoclang{zh}{参考文献}{References}}}]
- $endif$ 
+% $endif$  
+% $endif$ 
+
+% ================== INDEX ====================
+\clearpage
+\printunsrtglossary[type=concepts, title={Concept Index}]
+\clearpage
+\printunsrtglossary[type=motscles, title={Keyword Index}]
+\clearpage
+\printunsrtglossary[type=notations, title={Notation Index}]
 
 \end{document}
