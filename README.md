@@ -40,7 +40,7 @@ This repository contains **two complementary documents** designed for different 
 - 🎯 Readers seeking actionable insights without heavy mathematical formalism
 
 **Key Features / 主要特点:**
-- ✅ ~60 pages, focused on diagnosis and operational solutions
+- ✅ >70 pages, focused on diagnosis and operational solutions
 - ✅ Clear narrative structure: Problem → Diagnosis → Solution → Implementation
 - ✅ Multi-level steering architecture (Beijing / Province / County / Observatory)
 - ✅ Spectral dashboard with 4 global observables ($\eta$, $d$, $\text{gap}$, $R_{\text{seuil}}$)
@@ -50,12 +50,12 @@ This repository contains **two complementary documents** designed for different 
 **Download / 下载:**
 | Language | File | Status |
 |----------|------|--------|
-| 🇨🇳 中文 | [rapport_thinktank_zh_15-09.md](Documents/zh/rapport_thinktank_zh_15-09.md) | ✅ Available |
-| 🇨🇳 中文 | [rapport_thinktank_zh_15-09.pdf](Documents/zh/rapport_thinktank_zh_15-09.pdf) | ✅ Available |
+| 🇨🇳 中文 | [rapport_thinktank_zh_24-11.md](Documents/zh/rapport_thinktank_zh_24-11.md) | ✅ Available |
+| 🇨🇳 中文 72 pages | [rapport_thinktank_zh_24-11.pdf](Documents/zh/rapport_thinktank_zh_24-11.pdf) | ✅ Available |
 | 🇬🇧 English | [rapport_thinktank_en_21-11.md](Documents/en/rapport_thinktank_en_21-11.md) | ✅ Available |
-| 🇬🇧 English | [rapport_thinktank_en_21-11.pdf](Documents/en/rapport_thinktank_en_21-11.pdf) | ✅ Available |
+| 🇬🇧 English 87 pages | [rapport_thinktank_en_21-11.pdf](Documents/en/rapport_thinktank_en_21-11.pdf) | ✅ Available |
 | 🇫🇷 Français  | [rapport_thinktank_fr_27-10.md](Documents/fr/rapport_thinktank_fr_27-10.md) | ✅ Available |
-| 🇫🇷 Français  | [rapport_thinktank_fr_27-10.pdf](Documents/fr/rapport_thinktank_fr_27-10.pdf) | ✅ Available |
+| 🇫🇷 Français 89 pages | [rapport_thinktank_fr_27-10.pdf](Documents/fr/rapport_thinktank_fr_27-10.pdf) | ✅ Available |
 
 ---
 

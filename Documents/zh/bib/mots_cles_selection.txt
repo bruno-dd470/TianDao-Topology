@@ -1,0 +1,234 @@
+# =====================================================================
+# SÉLECTION DES MOTS-CLÉS — index 关键词索引
+# ---------------------------------------------------------------------
+# Une clé par ligne. '#' = commentaire (ligne ignorée).
+#   AJOUTER un mot-clé à l'index  -> décommentez sa ligne
+#   RETIRER un mot-clé            -> commentez-la avec #
+# Puis relancez : python3 filtrer_mots_cles.py  (ou le script de build)
+# =====================================================================
+
+# ==== Distinctions transverses (chantier A5–A10, avec description) ====
+bornes_admissibles
+encoder_comprendre
+interpretabilite_native
+
+# ==== Termes chinois curés (avec description) ====
+qieyun
+guangyun
+tianming
+tianxia
+tiandao-jingji
+banque-deux-montagnes
+gep
+wufu
+lin-piao
+nouvelles-forces-productives
+
+# ==== Cœur économique : rente, foncier, diagnostic macro ====
+rente
+foncier
+immobilier
+dette
+fiscalite
+financiarisation
+speculation
+bulle
+crise
+inflation
+deflation
+chomage
+salaires
+profits
+croissance
+planification
+monnaie
+
+# ==== Transition verte / « deux montagnes » ====
+photovoltaique
+agrivoltaique
+transition_verte
+marche_carbone
+quotas_carbone
+biodiversite
+foret
+
+# ==== Nouvelles forces productives / technologie ====
+intelligence_artificielle
+robotique
+calcul
+donnees
+
+# ==== Territoires / urbanisation ====
+territoire
+ville
+agglomeration
+hierarchie_urbaine
+campagne
+travailleurs_migrants
+infrastructures
+lishui
+
+# ==== Géopolitique ====
+geopolitique
+diplomatie
+mondialisation
+
+# ==== Concepts chinois / légitimité / épistémologie ====
+legitimite
+vertu
+contrat_social
+harmonie
+chine_ancienne
+epistemologie
+ontologie
+ecriture_philosophie
+reform
+innovation
+architecte_reformes
+
+# =====================================================================
+# CI-DESSOUS : disponibles mais laissés de côté (trop génériques).
+# Décommentez ce que vous voulez réintégrer.
+# =====================================================================
+
+# --- Génériques économiques ---
+# economie
+# finance
+# emploi
+# investissement
+# marche
+# creation
+# regulation
+# liquidite
+# consommation
+# exportation
+# importation
+# marche_immobilier
+# recession
+# depression
+# stagflation
+# pouvoir_achat
+
+# --- Énergie / environnement (génériques) ---
+# energie
+# carbone
+# environnement
+# pollution
+# sols
+# eau
+# kwh
+# electricite
+
+# --- Technologie (unités, génériques) ---
+# eflops
+# transport
+# logement
+# construction
+
+# --- Territoires (génériques) ---
+# metropole
+# geographie
+# reseau
+# migration
+# population
+# sante
+# education
+# culture
+
+# --- Lieux et pays ---
+# philosophie
+# histoire
+# chine
+# pekin
+# shenzhen
+# shanghai
+# zhejiang
+# yangtse
+# japon
+# usa
+# europe
+# russie
+# bresil
+# indonesie
+# afrique
+# amerique_latine
+# asie_sud_est
+
+# --- Géopolitique (génériques) ---
+# guerre
+# conflit
+# alliance
+
+# --- Société ---
+# parente
+# famille
+# societe
+# etat
+# equilibre
+# stabilite
+# communaute
+
+# --- Dynamique / recherche (génériques) ---
+# dynamique
+# evolution
+# revolution
+# technologie
+# science
+# recherche
+# theorie
+# modele
+# systeme
+# structure
+# mecanisme
+# consequence
+# resultat
+
+# --- Vocabulaire philosophique ---
+# connaissance
+# savoir
+# produit_ecosystemique_brut
+# matiere
+# etre
+# etre_philosophie
+# volonte
+# necessite
+# reel
+# present
+# passe
+# vitesse
+# acceleration
+# densite
+# lumiere
+# ecriture
+# recit
+# legende
+# metaphore
+# metaphore_philosophie
+# representation
+# idee
+# categorie
+# langue
+# academie
+# universite
+# ecole
+# institut
+# laboratoire
+# fondation
+# republique
+# verite
+# erreur
+# illusion
+# realite
+# phenomene
+# ephemere
+# eternel
+# universel_philosophie
+# particulier_philosophie
+# unite_philosophie
+# diversite
+# identite
+# difference
+# architecte
+
+# --- Terme du modèle, description à compléter (actuellement « ... ») ---
+# hydrodynamique-topologique
